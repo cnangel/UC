@@ -1,0 +1,25 @@
+uc
+
+This is a tempalte about autoconf and automation. 
+You can use create package like tar, gz, bzip, zip and rpm, and version
+and some args can match from some file as Changlog and README.
+
+INSTALLATION
+
+Don't modify ChangeLog and README if you are freshener.
+
+    ./configure
+    make
+    make test
+    make install
+
+SUPPORT AND DOCUMENTATION
+
+    http://my.huhoo.net/study/
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2009 cnangel (cnangel@gmail.com)
+
+This program is released under the following license: GPLv3
+
