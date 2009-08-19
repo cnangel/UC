@@ -13,7 +13,9 @@
 
 #include <cppunit/extensions/HelperMacros.h>
 
+extern "C" {
 #include <uc.h>
+}
 
 namespace sme
 {

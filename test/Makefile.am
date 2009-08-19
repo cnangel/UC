@@ -5,7 +5,7 @@ EXTRA_DIST			= template.cpp template.h
 AM_CPPFLAGS			= -I$(top_srcdir)/src 
 # AM_LDFLAGS			= -fPIC -L/usr/local/lib@BITS@ -pthread
 
-LDADD				= $(top_srcdir)/src/libsme.la -lcppunit -lpthread -ldl
+LDADD				= $(top_srcdir)/src/libuc.la -lcppunit -lpthread -ldl
 
 test_sources		= uctf.cpp uctf.h \
 					  $(NULL)

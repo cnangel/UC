@@ -24,8 +24,11 @@ void SmeUrlTF::tearDown() {
 }
 
 void SmeUrlTF::testInit() {
-	CPPUNIT_ASSERT_EQUAL(0, url.setLogger(conf));
-	CPPUNIT_ASSERT(szContent);
+	char *str = (char *)malloc(128);
+	CPPUNIT_ASSERT(str);
+	int ret = helloworld("HHH", str, 0);
+	CPPUNIT_ASSERT_EQUAL(0, ret);
+	free(str);
 }
 
 

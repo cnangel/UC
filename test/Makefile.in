@@ -51,7 +51,7 @@ am__objects_1 = dotest-uctf.$(OBJEXT)
 am_dotest_OBJECTS = dotest-dotest.$(OBJEXT) $(am__objects_1)
 dotest_OBJECTS = $(am_dotest_OBJECTS)
 dotest_LDADD = $(LDADD)
-dotest_DEPENDENCIES = $(top_srcdir)/src/libsme.la
+dotest_DEPENDENCIES = $(top_srcdir)/src/libuc.la
 dotest_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(dotest_LDFLAGS) $(LDFLAGS) -o $@
@@ -214,7 +214,7 @@ AUTOMAKE_OPTIONS = foreign
 EXTRA_DIST = template.cpp template.h 
 AM_CPPFLAGS = -I$(top_srcdir)/src 
 # AM_LDFLAGS			= -fPIC -L/usr/local/lib@BITS@ -pthread
-LDADD = $(top_srcdir)/src/libsme.la -lcppunit -lpthread -ldl
+LDADD = $(top_srcdir)/src/libuc.la -lcppunit -lpthread -ldl
 test_sources = uctf.cpp uctf.h \
 					  $(NULL)
 
