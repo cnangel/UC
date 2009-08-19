@@ -4,8 +4,8 @@ Name: @PACKAGE_NAME@
 Version: @PACKAGE_VERSION@
 Release: @PACKAGE_RELEASE@
 
-Summary: template for automake
-License: LGPL
+Summary: template for uc project example 
+License: GPLv3
 Group: Development/Libraries
 Url: @URL@
 Source0: %{name}-%{version}.tar.gz
@@ -15,7 +15,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id} -u -n)
 
 Packager: Cnangel <junliang.li@alibaba-inc.com>
 #Requires: 
-#BuildRequires: 
+BuildRequires: cppunit-devel
 
 %description
 %{name} is a template for automake.
@@ -63,16 +63,16 @@ rm -rf $RPM_BUILD_ROOT
 #cp -r include/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/include
 #cp -r lib/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/lib
 %makeinstall
-install -p -m 0644 include/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/include
-install -p lib/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/lib
-install -p -m 0644 data/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/data
+#install -p -m 0644 include/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/include
+#install -p lib/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/lib
+#install -p -m 0644 data/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/data
 # install -p -m 0644 doc/* $RPM_BUILD_ROOT%{_docdir}
 # cp -rf doc/* $RPM_BUILD_ROOT%{_docdir}
 # delete tmp file 
-find $RPM_BUILD_ROOT%{PACKAGE_HOME} \( -name "Makefile*" \) -exec rm -rf '{}' \;
-find $RPM_BUILD_ROOT%{_docdir} \( -name "Makefile*" \) -exec rm -rf '{}' \;
-rm -rf `find $RPM_BUILD_ROOT%{PACKAGE_HOME} -name ".svn*"`
-rm -rf `find $RPM_BUILD_ROOT%{_docdir} -name ".svn*"`
+#find $RPM_BUILD_ROOT%{PACKAGE_HOME} \( -name "Makefile*" \) -exec rm -rf '{}' \;
+#find $RPM_BUILD_ROOT%{_docdir} \( -name "Makefile*" \) -exec rm -rf '{}' \;
+#rm -rf `find $RPM_BUILD_ROOT%{PACKAGE_HOME} -name ".svn*"`
+#rm -rf `find $RPM_BUILD_ROOT%{_docdir} -name ".svn*"`
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,7 +88,7 @@ ldconfig
 #%doc AUTHORS COPYING ChangeLog INSTALL NEWS README
 %{_libdir}/*.so*
 %attr(755,root,root) %{_bindir}
-%config(noreplace) %attr(666,root,root) %{_sysconfdir}
+%config(noreplace) %attr(666,root,root) %{_sysconfdir}/@PACKAGE_NAME@/*
 #%{_infodir}
 #%{_mandir}
 #%config(noreplace) %attr(666,root,root) %{PACKAGE_HOME}/conf/*

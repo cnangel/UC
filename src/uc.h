@@ -1,5 +1,5 @@
 /**
- * Copyright(c) 2009 Alibaba Company, All Rights Reserved.
+ * Copyright(c) 2009 Cnangel, All Rights Reserved.
  * 
  * @file uc.h
  * @details for development

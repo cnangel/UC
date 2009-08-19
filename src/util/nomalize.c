@@ -1,14 +1,14 @@
 /**
  * Copyright(c) 2009 Cnangel, All Rights Reserved.
  * 
- * @Filename: nomalize.c
- * @Description: 
- * @Author: cnangel
- * @Version: 1.0.0
- * @Time: 2009/07/29 16:58:47 
+ * @file nomalize.c
+ * @details only for child directory test
+ * @author cnangel
+ * @version 1.0.0
+ * @date 2009/08/19 17:14:02
  */
 
-#include "nomalize.h"
+#include <nomalize.h>
 
 int lc(char *str, size_t strLen)
 {

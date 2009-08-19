@@ -1,15 +1,22 @@
-AUTOMAKE_OPTIONS = foreign
+AUTOMAKE_OPTIONS 	= foreign
 
-# EXTRA_DIST		= dotest.c t1.c
-AM_CPPFLAGS			= -I$(top_srcdir)/src
-LDADD				= ../src/libuc.la
+EXTRA_DIST			= template.cpp template.h 1.xml
 
-test_sources		= t1.c \
+AM_CPPFLAGS			= -I$(top_srcdir)/src 
+# AM_LDFLAGS			= -fPIC -L/usr/local/lib@BITS@ -pthread
+
+LDADD				= $(top_srcdir)/src/libsme.la -lcppunit -lpthread -ldl
+
+test_sources		= uctf.cpp uctf.h \
 					  $(NULL)
 
 check_PROGRAMS		= dotest
-dotest_SOURCES		= dotest.c $(test_sources)
-dotest_LDFLAGS		= -static-libtool-libs
+dotest_SOURCES		= dotest.cpp $(test_sources)
+dotest_LDFLAGS		= -static-libtool-libs \
+					  $(NULL)
+
+dotest_CPPFLAGS		= -I$(top_srcdir)/src \
+					  $(NULL)
 
 TESTS_ENVIRONMENT	= LD_LIBRARY_PATH=/usr/local/lib HEAPCHECK=normal
 TESTS				= $(check_PROGRAMS)
