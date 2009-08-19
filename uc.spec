@@ -2,7 +2,7 @@
 
 Name: uc
 Version: 0.0.2
-Release: 4
+Release: 5
 
 Summary: template for automake
 License: LGPL

@@ -12,7 +12,8 @@ SUBDIRS = include \
 		  test \
 		  src \
 		  conf \
-		  doc
+		  doc \
+		  $(NULL)
 
 # install check.pc
 pcdatadir = $(libdir)/pkgconfig

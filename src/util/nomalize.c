@@ -15,7 +15,6 @@ int lc(char *str, size_t strLen)
 	if (strLen == 0) return 1;
 	int i = 0;
 	for (; i < strLen; i++) {
-		printf("%c\n", str[i]);
 		if (str[i] >= 'A' && str[i] <= 'Z') {
 			str[i] = str[i] + ' ';
 		}

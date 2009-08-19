@@ -10,7 +10,7 @@
 
 
 #include <stdio.h>
-#include "uc.h"
+#include <uc.h>
 
 #define MAXSPACE 1024
 

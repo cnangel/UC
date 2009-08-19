@@ -1,5 +1,5 @@
-#include "uc.h"
-#include "util/nomalize.h"
+#include <uc.h>
+#include <util/nomalize.h>
 
 /* desc must relocate space, otherwise not safe */
 int 

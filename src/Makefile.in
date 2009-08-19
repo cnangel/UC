@@ -38,7 +38,7 @@ build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = ucrun$(EXEEXT)
 subdir = src
-DIST_COMMON = $(include_HEADERS) $(srcdir)/Makefile.am \
+DIST_COMMON = $(libucinclude_HEADERS) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -73,10 +73,10 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
-	"$(DESTDIR)$(includedir)"
+	"$(DESTDIR)$(libucincludedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libuc_la_DEPENDENCIES = util/libnomalize.la
-am_libuc_la_OBJECTS = uc.lo
+am_libuc_la_OBJECTS = libuc_la-ucmain.lo
 libuc_la_OBJECTS = $(am_libuc_la_OBJECTS)
 libuc_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(libuc_la_LDFLAGS) \
@@ -110,7 +110,7 @@ RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	install-pdf-recursive install-ps-recursive install-recursive \
 	installcheck-recursive installdirs-recursive pdf-recursive \
 	ps-recursive uninstall-recursive
-HEADERS = $(include_HEADERS)
+HEADERS = $(libucinclude_HEADERS)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
@@ -273,13 +273,25 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 
-# AM_LDFLAGS		= -fPIC -L/usr/local/lib@BITS@ -pthread
+# AM_LDFLAGS			= -fPIC -L/usr/local/lib@BITS@ -pthread
+# include_HEADERS		= uc.h
 SUBDIRS = util
-include_HEADERS = uc.h
 lib_LTLIBRARIES = libuc.la
-libuc_la_SOURCES = uc.c uc.h
+libuc_la_SOURCES = ucmain.c ucmain.h \
+						  uc.h \
+						  $(NULL)
+
 libuc_la_LIBADD = util/libnomalize.la
-libuc_la_LDFLAGS = -no-undefined -version-info @LT_VERSION_INFO@ -release @PACKAGE_VERSION@
+libuc_la_CPPFLAGS = -I$(top_srcdir)/src
+libuc_la_LDFLAGS = -no-undefined \
+						  -version-info @LT_VERSION_INFO@ \
+						  -release @PACKAGE_RELEASE@ \
+						  $(NULL)
+
+libucincludedir = $(includedir)/@PACKAGE_NAME@
+libucinclude_HEADERS = uc.h \
+						  $(NULL)
+
 ucrun_SOURCES = ucrun.c
 ucrun_LDADD = libuc.la
 ucrun_LDFLAGS = -static
@@ -403,7 +415,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/uc.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libuc_la-ucmain.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ucrun.Po@am__quote@
 
 .c.o:
@@ -427,31 +439,38 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
+libuc_la-ucmain.lo: ucmain.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libuc_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libuc_la-ucmain.lo -MD -MP -MF $(DEPDIR)/libuc_la-ucmain.Tpo -c -o libuc_la-ucmain.lo `test -f 'ucmain.c' || echo '$(srcdir)/'`ucmain.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libuc_la-ucmain.Tpo $(DEPDIR)/libuc_la-ucmain.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ucmain.c' object='libuc_la-ucmain.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libuc_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libuc_la-ucmain.lo `test -f 'ucmain.c' || echo '$(srcdir)/'`ucmain.c
+
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-includeHEADERS: $(include_HEADERS)
+install-libucincludeHEADERS: $(libucinclude_HEADERS)
 	@$(NORMAL_INSTALL)
-	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"
-	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
+	test -z "$(libucincludedir)" || $(MKDIR_P) "$(DESTDIR)$(libucincludedir)"
+	@list='$(libucinclude_HEADERS)'; test -n "$(libucincludedir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
 	done | $(am__base_list) | \
 	while read files; do \
-	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(includedir)'"; \
-	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(includedir)" || exit $$?; \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(libucincludedir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(libucincludedir)" || exit $$?; \
 	done
 
-uninstall-includeHEADERS:
+uninstall-libucincludeHEADERS:
 	@$(NORMAL_UNINSTALL)
-	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
+	@list='$(libucinclude_HEADERS)'; test -n "$(libucincludedir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(includedir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(includedir)" && rm -f $$files
+	echo " ( cd '$(DESTDIR)$(libucincludedir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(libucincludedir)" && rm -f $$files
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run `make' without going through this Makefile.
@@ -653,7 +672,7 @@ install-binPROGRAMS: install-libLTLIBRARIES
 
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(includedir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(libucincludedir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -704,7 +723,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-includeHEADERS
+install-data-am: install-libucincludeHEADERS
 
 install-dvi: install-dvi-recursive
 
@@ -750,8 +769,8 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-includeHEADERS \
-	uninstall-libLTLIBRARIES
+uninstall-am: uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
+	uninstall-libucincludeHEADERS
 
 .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) ctags-recursive \
 	install-am install-strip tags-recursive
@@ -764,15 +783,15 @@ uninstall-am: uninstall-binPROGRAMS uninstall-includeHEADERS \
 	html-am info info-am install install-am install-binPROGRAMS \
 	install-data install-data-am install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
-	install-includeHEADERS install-info install-info-am \
-	install-libLTLIBRARIES install-man install-pdf install-pdf-am \
-	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs installdirs-am maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags tags-recursive uninstall uninstall-am \
-	uninstall-binPROGRAMS uninstall-includeHEADERS \
-	uninstall-libLTLIBRARIES
+	install-info install-info-am install-libLTLIBRARIES \
+	install-libucincludeHEADERS install-man install-pdf \
+	install-pdf-am install-ps install-ps-am install-strip \
+	installcheck installcheck-am installdirs installdirs-am \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
+	pdf pdf-am ps ps-am tags tags-recursive uninstall uninstall-am \
+	uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
+	uninstall-libucincludeHEADERS
 
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
