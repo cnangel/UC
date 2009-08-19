@@ -3,7 +3,8 @@ AUTOMAKE_OPTIONS		= foreign
 # AM_LDFLAGS			= -fPIC -L/usr/local/lib@BITS@ -pthread
 # include_HEADERS		= uc.h
 
-SUBDIRS					= util
+SUBDIRS					= util \
+						  $(NULL)
 
 
 lib_LTLIBRARIES			= libuc.la
@@ -20,6 +21,7 @@ libuc_la_LDFLAGS		= -no-undefined \
 
 libucincludedir			= $(includedir)/@PACKAGE_NAME@
 libucinclude_HEADERS	= uc.h \
+						  ucmain.h \
 						  $(NULL)
 
 bin_PROGRAMS			= ucrun

@@ -24,8 +24,8 @@ void SmeUrlTF::tearDown() {
 }
 
 void SmeUrlTF::testInit() {
-//	CPPUNIT_ASSERT_EQUAL(0, url.setLogger(conf));
-	//CPPUNIT_ASSERT(szContent);
+	CPPUNIT_ASSERT_EQUAL(0, url.setLogger(conf));
+	CPPUNIT_ASSERT(szContent);
 }
 
 

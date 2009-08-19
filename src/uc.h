@@ -12,6 +12,7 @@
 #define __UC_H__
 
 #include <ucmain.h>
+#include <util/nomalize.h>
 
 #endif //__UC_H__
 
