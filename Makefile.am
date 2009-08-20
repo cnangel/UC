@@ -36,3 +36,4 @@ rpm: doc dist @PACKAGE@.spec
 	$(LN_S) `pwd`/@PACKAGE@.spec ${RPMBUILDTOPDIR}/SPECS
 	rpmbuild -ba ${RPMBUILDTOPDIR}/SPECS/@PACKAGE@.spec
 
+CLEANFILES = *~ *.log uc-*.tar.gz
