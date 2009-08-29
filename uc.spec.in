@@ -111,6 +111,9 @@ ldconfig
 %{_docdir}
 
 %changelog
+* Wed Aug 19 2009 Cnangel  <junliang.li@alibaba-inc.com> 0.0.3-1
+- add more headers design;
+- Add test, you can use Check for c or Cppunit for c++(default: cppunit);
 * Thu Jul 30 2009 Cnangel <junliang.li@alibaba-inc.com> 0.0.2-2
 - Improve version control and add data package;
 - Add LT_MAJOR, LT_REVISION and LT_AGE like lib*.so.1.0.0 ;
