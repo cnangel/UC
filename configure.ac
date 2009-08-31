@@ -125,6 +125,7 @@ dnl AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h string.h strings.
 dnl AC_HEADER_STDBOOL
 dnl AC_C_CONST
 dnl AC_C_INLINE
+dnl AC_TYPE_UINT32_T
 dnl AC_TYPE_MODE_T
 dnl AC_TYPE_OFF_T
 dnl AC_TYPE_PID_T
