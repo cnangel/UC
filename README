@@ -8,6 +8,7 @@ INSTALLATION
 
 Don't modify ChangeLog and README if you are freshener.
 
+    ./autogen.sh
     ./configure
     make
     make test
