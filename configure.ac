@@ -225,9 +225,11 @@ AC_CONFIG_FILES([Makefile
 				 doc/Makefile
 				 include/Makefile
 				 lib/Makefile
+				 scripts/Makefile
                  src/Makefile
                  src/util/Makefile
                  test/Makefile
+				 tools/Makefile
 				 Doxyfile])
 AC_OUTPUT
 

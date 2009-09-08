@@ -13,6 +13,8 @@ SUBDIRS = include \
 		  src \
 		  conf \
 		  doc \
+		  scripts \
+		  tools \
 		  $(NULL)
 
 # install check.pc
