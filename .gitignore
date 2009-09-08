@@ -21,6 +21,9 @@ src/.deps
 src/util/.deps
 test/.deps/
 uc.pc
+uc.spec
 doc/doxygen
 autom4te.cache
-
+Makefile.in
+*/Makefile.in
+*/*/Makefile.in
