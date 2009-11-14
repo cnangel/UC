@@ -20,9 +20,6 @@ PACKAGE_MAJOR_VERSION=${PACKAGE_VERSION%%\.*}
 PACKAGE_MINOR_VERSION=`echo $PACKAGE_VERSION | cut -d. -f2 | tr -d "\n"`
 PACKAGE_MICRO_VERSION=${PACKAGE_VERSION##*\.}
 
-# define([ANET_LT_MAJOR],[1])
-# define([ANET_LT_REVISION],[0])
-# define([ANET_LT_AGE],[0])
 ifdef([m4_pattern_allow], [m4_pattern_allow([LT_MAJOR])])
 ifdef([m4_pattern_allow], [m4_pattern_allow([LT_REVISION])])
 ifdef([m4_pattern_allow], [m4_pattern_allow([LT_AGE])])
