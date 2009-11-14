@@ -113,17 +113,18 @@ ldconfig
 %{_docdir}
 
 %changelog
-* Wed Aug 19 2009 Cnangel  <junliang.li@alibaba-inc.com> 0.0.3-1
-- add more headers design;
+* Wed Aug 19 2009 Cnangel <cnangel@gmail.com> 0.0.3-2
+- Add more headers design;
 - Add test, you can use Check for c or Cppunit for c++(default: cppunit);
-* Thu Jul 30 2009 Cnangel <junliang.li@alibaba-inc.com> 0.0.2-2
+- Add tools and script directory, and delete not use files like Makefile.in etc.;
+* Mon Aug 03 2009 Cnangel <cnangel@gmail.com> 0.0.2
 - Improve version control and add data package;
-- Add LT_MAJOR, LT_REVISION and LT_AGE like lib*.so.1.0.0 ;
-- Add DOXYGEN_OUTPUT_DIR doc/doxygen;
 - Add doc/doxygen to rpm;
-- Add test, you can use Check for c or Cppunit for c++;
 - Add *.pc.in for pkgconfig;
-* Mon Jun 08 2009 Cnangel <junliang.li@alibaba-inc.com> 0.0.1-1
-- build the spec file.
+- Replace some variables like @PACKAGE@ etc.;
+* Mon Jun 08 2009 Cnangel <cnangel@gmail.com> 0.0.1
+- Add LT_MAJOR, LT_REVISION and LT_AGE like lib*.so.1.0.0;
+- Add DOXYGEN_OUTPUT_DIR doc/doxygen;
+- You can visit http://my.huhoo.net/study for update.
 
 # -fin-

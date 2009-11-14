@@ -1,6 +1,8 @@
 AUTOMAKE_OPTIONS = foreign
 
-EXTRA_DIST = example.pl
+EXTRA_DIST = example.pl \
+			 changelog.pl \
+			 $(NULL)
 
 toolstodir = $(shell echo '$(datadir)/@PACKAGE@/tools')
 tools_srcdir = $(shell ls $(top_srcdir)/tools/*|grep -v Makefile|grep -v \.bak$$)
