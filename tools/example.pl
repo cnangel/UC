@@ -27,7 +27,7 @@ GetOptions (
 		) or pod2usage(2);
 pod2usage(1) if $help;
 pod2usage(-exitstatus => 0, -verbose => 2) if $man;
-$ARGV{conf} = "$Bin/../conf/config.cfg" unless ($ARGV && -f $ARGV{conf});
+$ARGV{conf} = "$Bin/../conf/config.cfg" unless ($ARGV{conf} && -f $ARGV{conf});
 pod2usage() unless (-f $ARGV{conf});
 
 # use vars qw/@files/;
