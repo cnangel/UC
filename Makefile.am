@@ -9,12 +9,12 @@ ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = include \
 		  lib \
 		  data \
-		  test \
 		  src \
 		  conf \
 		  doc \
 		  scripts \
 		  tools \
+		  test \
 		  $(NULL)
 
 # install check.pc
@@ -38,4 +38,5 @@ rpm: doc dist @PACKAGE@.spec
 	$(LN_S) `pwd`/@PACKAGE@.spec ${RPMBUILDTOPDIR}/SPECS
 	rpmbuild -ba ${RPMBUILDTOPDIR}/SPECS/@PACKAGE@.spec
 
+DISTCLEANFILES = .deps Makefile 
 CLEANFILES = *~ *.log uc-*.tar.gz
