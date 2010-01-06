@@ -114,10 +114,11 @@ ldconfig
 %{_docdir}
 
 %changelog
-* Wed Aug 19 2009 Cnangel <cnangel@gmail.com> 0.0.3-2
+* Wed Aug 19 2009 Cnangel <cnangel@gmail.com> 0.0.3-5
 - Add more headers design;
 - Add test, you can use Check for c or Cppunit for c++(default: cppunit);
 - Add tools and script directory, and delete not use files like Makefile.in etc.;
+- Add Macro: DISTCLEANFILES
 * Mon Aug 03 2009 Cnangel <cnangel@gmail.com> 0.0.2
 - Improve version control and add data package;
 - Add doc/doxygen to rpm;
