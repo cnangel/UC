@@ -1,4 +1,14 @@
 /**
+ * Copyright(c) 2010 Alibaba Company, All Rights Reserved.
+ * 
+ * @Filename: template.cpp
+ * @Description:
+ * @Author: cnangel
+ * @Version: 1.0.0
+ * @Time: 2010/01/06 23:34:28
+ */
+
+/**
  * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
  * @Filename: template.cpp
