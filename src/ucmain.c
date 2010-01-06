@@ -1,11 +1,11 @@
 /**
- * Copyright(c) 2009 Cnangel, All Rights Reserved.
+ * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
  * @file ucmain.c
  * @details for test only
  * @author cnangel
  * @version 1.0.0
- * @date 2009/08/19 17:12:23
+ * @date 2010/01/06 23:45:40 
  */
 
 #include <uc.h>
@@ -20,9 +20,9 @@ helloworld(const char *src, char *desc, int flag)
 	strncpy(desc, src, srcLen);
 	strcat(desc, ", hello, world!");
 	if (flag == 1) {
-		lc(desc, strlen(desc));
+		lcchar(desc, strlen(desc));
 	} else if (flag == 0) {
-		uc(desc, strlen(desc));
+		ucchar(desc, strlen(desc));
 	}
 	return 0;
 }

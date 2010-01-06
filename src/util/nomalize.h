@@ -1,12 +1,13 @@
 /**
- * Copyright(c) 2009 Cnangel, All Rights Reserved.
+ * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
  * @file nomalize.h
- * @details lower and upper
+ * @details lower and upper, and only for child directory test
  * @author cnangel
  * @version 1.0.0
- * @date 2009/07/29 16:54:38 
+ * @date 2010/01/06 23:54:12
  */
+
 #ifndef __UTIL_NOMALIZE_H__
 #define __UTIL_NOMALIZE_H__
 
@@ -19,7 +20,7 @@
  * @param strLen the length of str
  * @return 1 if fail; otherwise, return 0.
  */
-extern int lc(char *str, size_t strLen);
+extern int lcchar(char *str, size_t strLen);
 
 /**
  * a string is changed capital letters
@@ -27,7 +28,7 @@ extern int lc(char *str, size_t strLen);
  * @param strLen the length of str
  * @return 1 if fail; otherwise, return 0.
  */
-extern int uc(char *str, size_t strLen);
+extern int ucchar(char *str, size_t strLen);
 
 #endif //__UTIL_NOMALIZE_H__
 
