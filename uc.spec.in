@@ -13,7 +13,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id} -u -n)
 
 %define PACKAGE_HOME %{_datadir}/@PACKAGE@
 
-Packager: Cnangel <junliang.li@alibaba-inc.com>
+Packager: Cnangel <cnangel@gmail.com>
 #Requires: 
 BuildRequires: cppunit-devel
 

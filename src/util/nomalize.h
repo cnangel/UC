@@ -5,7 +5,7 @@
  * @details lower and upper
  * @author cnangel
  * @version 1.0.0
- * @date 2009/07/29 16:54:38 
+ * @date 2010/01/06 23:00:38 
  */
 #ifndef __UTIL_NOMALIZE_H__
 #define __UTIL_NOMALIZE_H__
@@ -19,7 +19,7 @@
  * @param strLen the length of str
  * @return 1 if fail; otherwise, return 0.
  */
-extern int lc(char *str, size_t strLen);
+extern int lcchar(char *str, size_t strLen);
 
 /**
  * a string is changed capital letters
@@ -27,7 +27,7 @@ extern int lc(char *str, size_t strLen);
  * @param strLen the length of str
  * @return 1 if fail; otherwise, return 0.
  */
-extern int uc(char *str, size_t strLen);
+extern int ucchar(char *str, size_t strLen);
 
 #endif //__UTIL_NOMALIZE_H__
 

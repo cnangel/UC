@@ -1,29 +1,29 @@
 /**
- * Copyright(c) 2009 Cnangel, All Rights Reserved.
+ * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
- * @file uctf.cpp
- * @details uc test
- * @author cnangel
- * @version 1.0.0
- * @date 2009/08/19 17:25:16
+ * @Filename: uctf.cpp
+ * @Description:
+ * @Author: cnangel
+ * @Version: 1.0.0
+ * @Time: 2010/01/06 22:52:13
  */
 
 #include <stdlib.h>
 #include "uctf.h"
 
-using namespace sme;
+using namespace uc;
 
-CPPUNIT_TEST_SUITE_REGISTRATION(SmeUrlTF);
+CPPUNIT_TEST_SUITE_REGISTRATION(UCTF);
 
-void SmeUrlTF::setUp() {
-
-}
-
-void SmeUrlTF::tearDown() {
+void UCTF::setUp() {
 
 }
 
-void SmeUrlTF::testInit() {
+void UCTF::tearDown() {
+
+}
+
+void UCTF::testInit() {
 	char *str = (char *)malloc(128);
 	CPPUNIT_ASSERT(str);
 	int ret = helloworld("HHH", str, 0);

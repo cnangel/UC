@@ -1,20 +1,20 @@
 /**
- * Copyright(c) 2009 Cnangel, All Rights Reserved.
+ * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
- * @file template.cpp
- * @details template for test
- * @author cnangel
- * @version 1.0.0
- * @date 2009/08/19 17:15:27
+ * @Filename: template.h
+ * @Description:
+ * @Author: cnangel
+ * @Version: 1.0.0
+ * @Time: 2010/01/06 22:49:25
  */
 
-#ifndef __SME_TEMPLATE_H__
-#define __SME_TEMPLATE_H__
+#ifndef __UC_TEMPLATE_H__
+#define __UC_TEMPLATE_H__
 
 #include <cppunit/extensions/HelperMacros.h>
-#include <sme.h>
+#include <uc.h>
 
-namespace sme
+namespace uc
 {
 	class TemplateTF : public CppUnit::TestFixture {
 

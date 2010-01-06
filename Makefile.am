@@ -1,5 +1,6 @@
 AUTOMAKE_OPTIONS = foreign
 EXTRA_DIST = autogen.sh \
+			 uc.spec \
 			 $(NULL)
 
 CURRENTPATH = $(shell /bin/pwd)

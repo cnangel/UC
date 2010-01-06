@@ -1,11 +1,11 @@
 /**
- * Copyright(c) 2009 Cnangel, All Rights Reserved.
+ * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
- * @file uctf.h
- * @details uc test 
- * @author cnangel
- * @version 1.0.0
- * @date 2009/08/19 17:23:57
+ * @Filename: uctf.h
+ * @Description:
+ * @Author: cnangel
+ * @Version: 1.0.0
+ * @Time: 2010/01/06 22:52:40
  */
 
 #ifndef __UC_UCTF_H__
@@ -17,11 +17,11 @@ extern "C" {
 #include <uc.h>
 }
 
-namespace sme
+namespace uc
 {
-	class SmeUrlTF : public CppUnit::TestFixture {
+	class UCTF : public CppUnit::TestFixture {
 
-		CPPUNIT_TEST_SUITE(SmeUrlTF);
+		CPPUNIT_TEST_SUITE(UCTF);
 		CPPUNIT_TEST(testInit);
 		CPPUNIT_TEST_SUITE_END();
 

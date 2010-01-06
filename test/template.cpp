@@ -1,16 +1,16 @@
 /**
- * Copyright(c) 2009 Cnangel, All Rights Reserved.
+ * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
- * @file template.cpp
- * @details template for test
- * @author cnangel
- * @version 1.0.0
- * @date 2009/08/19 17:15:27
+ * @Filename: template.cpp
+ * @Description:
+ * @Author: cnangel
+ * @Version: 1.0.0
+ * @Time: 2010/01/06 22:50:52
  */
 
 #include "template.h"
 
-using namespace sme;
+using namespace uc;
 
 CPPUNIT_TEST_SUITE_REGISTRATION(TemplateTF);
 

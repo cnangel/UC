@@ -20,9 +20,9 @@ helloworld(const char *src, char *desc, int flag)
 	strncpy(desc, src, srcLen);
 	strcat(desc, ", hello, world!");
 	if (flag == 1) {
-		lc(desc, strlen(desc));
+		lcchar(desc, strlen(desc));
 	} else if (flag == 0) {
-		uc(desc, strlen(desc));
+		ucchar(desc, strlen(desc));
 	}
 	return 0;
 }

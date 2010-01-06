@@ -91,7 +91,7 @@ useful with the contents thereof, then output result of file(s).
 
 =head1 AUTHOR 
 
-B<Cnangel> (I<junliang.li@alibaba-inc.com>)
+B<Cnangel> (I<cnangel@gmail.com>)
 
 =head1 HISTORY
 

@@ -5,12 +5,12 @@
  * @details only for child directory test
  * @author cnangel
  * @version 1.0.0
- * @date 2009/08/19 17:14:02
+ * @date 2010/01/06 23:00:29 
  */
 
 #include <nomalize.h>
 
-int lc(char *str, size_t strLen)
+int lcchar(char *str, size_t strLen)
 {
 	if (strLen == 0) return 1;
 	int i = 0;
@@ -22,7 +22,7 @@ int lc(char *str, size_t strLen)
 	return 0;
 }
 
-int uc(char *str, size_t strLen)
+int ucchar(char *str, size_t strLen)
 {
 	if (strLen == 0) return 1;
 	int i = 0;
