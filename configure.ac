@@ -62,10 +62,18 @@ AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-# AC_PROG_RANLIB
-# CFLAGS="-g -Wall"
-# CXXFLAGS="-g -Wall"
-# LIBTOOL="$LIBTOOL --silent"
+dnl # AC_PROG_AWK
+dnl # AC_PROG_GREP
+dnl # AC_PROG_EGREP
+dnl # AC_PROG_FGREP
+AC_PROG_MKDIR_P
+dnl # AC_PROG_LEX
+dnl # AC_PROG_SED
+dnl # AC_PROG_YACC
+dnl # AC_PROG_RANLIB
+dnl # CFLAGS="-g -Wall"
+dnl # CXXFLAGS="-g -Wall"
+dnl # LIBTOOL="$LIBTOOL --silent"
 
 dnl # missing_dir=`cd $ac_aux_dir && pwd`
 dnl # AM_MISSING_PROG(ACLOCAL, aclocal, $missing_dir)
