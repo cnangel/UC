@@ -18,6 +18,7 @@ cover_db
 *.deps
 *Makefile.in
 *.o
+*.lo
 *dotest
 config.log
 autom4te.cache
@@ -42,4 +43,4 @@ m4
 missing
 config.h
 libtool
-
+src/ucrun
