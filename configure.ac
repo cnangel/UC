@@ -49,7 +49,8 @@ AC_SUBST(URL)
 
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([src/uc.h])
-AM_CONFIG_HEADER([config.h])
+#AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADER([config.h])
 AM_INIT_AUTOMAKE([tar-ustar])
 AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
 
@@ -71,9 +72,11 @@ dnl # AC_PROG_LEX
 dnl # AC_PROG_SED
 dnl # AC_PROG_YACC
 dnl # AC_PROG_RANLIB
+dnl # AC_LANG_CPLUSPLUS
 dnl # CFLAGS="-g -Wall"
 dnl # CXXFLAGS="-g -Wall"
 dnl # LIBTOOL="$LIBTOOL --silent"
+dnl # soname_spec="\${libname}\${shared_ext}"
 
 dnl # missing_dir=`cd $ac_aux_dir && pwd`
 dnl # AM_MISSING_PROG(ACLOCAL, aclocal, $missing_dir)
@@ -127,6 +130,15 @@ AC_CHECK_HEADERS([stdlib.h string.h])
 dnl AC_HEADER_SYS_WAIT
 dnl AC_CHECK_HEADERS([arpa/inet.h fcntl.h inttypes.h limits.h malloc.h memory.h netdb.h netinet/in.h stddef.h stdint.h stdlib.h string.h strings.h sys/ioctl.h sys/param.h sys/socket.h sys/statvfs.h sys/time.h unistd.h utime.h])
 dnl AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h string.h strings.h sys/socket.h sys/time.h unistd.h], [], [AC_MSG_FAILURE([headers checking failed!])])
+# Checking hashmap
+dnl AC_CHECK_HEADERS([ext/hash_map], [], AC_MSG_FAILURE([hash_map not found]))
+dnl AC_RUN_IFELSE([AC_LANG_PROGRAM([[#include <ext/hash_map>]],
+							   dnl [[#ifdef _BACKWARD_BACKWARD_WARNING_H
+								 dnl return 1;
+								 dnl #endif]])
+			  dnl ], 
+			  dnl [],
+			  dnl [CXXFLAGS="-Wno-deprecated $CXXFLAGS"])
 
 # Checks for typedefs, structures, and compiler characteristics.
 dnl AC_HEADER_STDBOOL
@@ -178,6 +190,7 @@ dnl                [],
 dnl                [AC_MSG_FAILURE([funcs check failed!])])
 
 
+# Checks for ydm libraries.
 dnl AC_ARG_WITH(
 		dnl [ydm],
 		dnl [AS_HELP_STRING([--with-ydm], [where do ydm install @<:@default=/usr/local@:>@])],
@@ -220,6 +233,44 @@ dnl AS_IF(
 	 dnl )
 
 dnl AM_CONDITIONAL(WITH_YDM, test x$with_ydm != xno)
+
+# Checks for alog libraries.
+dnl AC_ARG_WITH([alog],
+  dnl [AS_HELP_STRING([--with-alog],
+    dnl [do logging with alog @<:@default=yes@:>@])],
+  dnl [],
+  dnl [with_alog=yes])
+
+dnl AC_SUBST([ALOG_FLAG])
+
+dnl AC_MSG_CHECKING([whether do logging with alog])
+dnl AS_IF([test "x$with_alog" != "xno"],
+      dnl [ AC_MSG_RESULT([yes])
+        dnl AC_MSG_NOTICE(checking alog library...)
+        dnl AS_IF([test "x$with_alog" != "xyes"],
+              dnl [AC_MSG_NOTICE([checking alog in $with_alog...])
+               dnl CPPFLAGS="$CPPFLAGS -I$with_alog/include"
+               dnl LDFLAGS="$LDFLAGS -L$with_alog/lib${BITS}"
+              dnl ], 
+              dnl [AC_MSG_NOTICE([checking alog in system default location])]
+             dnl )
+
+        dnl [LIBS="$LIBS -lalog"]
+        dnl AC_CHECK_HEADERS([alog/Logger.h alog/Configurator.h],,
+                         dnl [AC_MSG_FAILURE([checking alog headers Failed])]
+                        dnl )
+        dnl AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <alog/Logger.h>]],
+                             dnl [[return alog::Logger::getRootLogger() ? 0 : 1;]])
+                       dnl ],
+                       dnl [AC_MSG_RESULT([checking for alog... OK])],
+                       dnl [AC_MSG_FAILURE([getRootLogger() checking failure])]
+                      dnl )
+        dnl [ALOG_FLAG="define HAVE_ALOG"]
+      dnl ],
+      dnl [ AC_MSG_RESULT([no])
+        dnl [ALOG_FLAG="undef HAVE_ALOG"]
+      dnl ]
+     dnl )  
 
 AC_CHECK_EXTRA_OPTIONS
 
