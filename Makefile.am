@@ -1,4 +1,6 @@
-AUTOMAKE_OPTIONS = foreign
+# AUTOMAKE_OPTIONS = foreign 1.11.1
+AUTOMAKE_OPTIONS = foreign 
+
 EXTRA_DIST = autogen.sh \
 			 uc.spec \
 			 $(NULL)
@@ -41,3 +43,4 @@ rpm: doc dist @PACKAGE@.spec
 
 DISTCLEANFILES = .deps Makefile 
 CLEANFILES = *~ *.log uc-*.tar.gz
+MAINTAINERCLEANFILES = Makefile.in

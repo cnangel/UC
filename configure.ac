@@ -274,6 +274,9 @@ dnl AS_IF([test "x$with_alog" != "xno"],
 
 AC_CHECK_EXTRA_OPTIONS
 
+dnl # all_includes="$all_includes -I/usr/include/foo"
+dnl # all_libraries="$all_libraries -L/usr/lib/foo"
+
 AC_CONFIG_FILES([Makefile
 				 uc.spec
 				 uc.pc
