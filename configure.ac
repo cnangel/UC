@@ -67,6 +67,7 @@ dnl # AC_PROG_AWK
 dnl # AC_PROG_GREP
 dnl # AC_PROG_EGREP
 dnl # AC_PROG_FGREP
+ifdef([m4_pattern_allow], [m4_pattern_allow([AC_PROG_MKDIR_P])])
 AC_PROG_MKDIR_P
 dnl # AC_PROG_LEX
 dnl # AC_PROG_SED
