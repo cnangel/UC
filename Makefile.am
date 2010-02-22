@@ -41,6 +41,11 @@ rpm: doc dist @PACKAGE@.spec
 	$(LN_S) `pwd`/@PACKAGE@.spec ${RPMBUILDTOPDIR}/SPECS
 	rpmbuild -ba ${RPMBUILDTOPDIR}/SPECS/@PACKAGE@.spec
 
+CLEANDIRS = doc/doxygen
 DISTCLEANFILES = .deps Makefile 
 CLEANFILES = *~ *.log uc-*.tar.gz
 MAINTAINERCLEANFILES = Makefile.in
+
+clean-local:
+	-test -z "$(CLEANDIRS)" || rm -rf $(CLEANDIRS)
+

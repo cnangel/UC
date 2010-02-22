@@ -6,6 +6,11 @@ AC_PREREQ(2.59)
 # define([UC_MAJOR_VERSION],[0])
 # define([UC_MINOR_VERSION],[0])
 # define([UC_MICRO_VERSION],[1])
+# m4_define([version_major], [0])
+# m4_define([version_minor], [3])
+# m4_define([version_revision], [1])
+# m4_define([version_suffix], [])
+# m4_define([version_full], m4_format([%d.%d.%d%s], version_major, version_minor, version_revision, version_suffix))
 AC_REVISION($Revision: esyscmd([grep -i Revision ChangeLog | awk 'NR==1 {print $5}' | tr -d "\n"]) $)dnl
 AC_INIT(esyscmd([grep -i Revision ChangeLog | awk 'NR==1 {print $4}' | tr -d "\n"]), esyscmd([grep ^[[:digit:]\.] ChangeLog | awk 'NR==1 { max=$1 } NF>=1 { if ($1>max) max=$1; } END{print max}' | tr -d "\n"]), esyscmd([grep -i Copyright README | awk -F[\(\)\ ] 'BEGIN{i=0}{NR=i;i++};END{print $8}' | tr -d "\n"]))
 
@@ -277,6 +282,15 @@ AC_CHECK_EXTRA_OPTIONS
 
 dnl # all_includes="$all_includes -I/usr/include/foo"
 dnl # all_libraries="$all_libraries -L/usr/lib/foo"
+
+# Check for rst2html
+dnl AC_ARG_VAR(RST2HTML, [rst2html path])
+dnl AC_PATH_PROGS(RST2HTML, [rst2html rst2html.py], [])
+dnl 
+dnl if test -z "$RST2HTML"
+dnl then
+dnl   AC_MSG_WARN([rst2html not found, documentation rebuild will not be possible])
+dnl fi
 
 AC_CONFIG_FILES([Makefile
 				 uc.spec
