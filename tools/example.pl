@@ -54,7 +54,7 @@ __END__
 
 =head1 NAME
 
-example.pl - Put Files To FTP Site
+example.pl - Example Perl Script
 
 =head1 SYNOPSIS
 
