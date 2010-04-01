@@ -1,7 +1,7 @@
 /**
  * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
- * @file ucmain.c
+ * @file uccexam.c
  * @details for test only
  * @author cnangel
  * @version 1.0.0

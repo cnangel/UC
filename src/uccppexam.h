@@ -1,7 +1,7 @@
 /**
  * Copyright(c) 2010 Cnangel, All Rights Reserved.
  * 
- * @file uccpp.h
+ * @file uccppexam.h
  * @details for test only 
  * @author cnangel
  * @version 1.0.0
@@ -30,7 +30,7 @@ public:
 	~UCCpp(){}
 
 public:
-	bool getRoot();
+	static bool getRoot();
 };
 
 };

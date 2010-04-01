@@ -11,9 +11,9 @@
 #ifndef __UC_H__
 #define __UC_H__
 
-#include <ucmain.h>
+#include <uccexam.h>
 #include <util/nomalize.h>
-#include <uccpp.h>
+#include <uccppexam.h>
 
 #endif //__UC_H__
 

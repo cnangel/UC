@@ -1,7 +1,7 @@
 /**
  * Copyright(c) 2009 Cnangel, All Rights Reserved.
  * 
- * @Filename: ucrun.c
+ * @Filename: uccmain.c
  * @Description: 
  * @Author: cnangel
  * @Version: 1.0.0
@@ -10,7 +10,7 @@
 
 
 #include <stdio.h>
-#include <ucmain.h>
+#include <uccexam.h>
 #include <util/nomalize.h>
 
 #define MAXSPACE 1024

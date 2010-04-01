@@ -1,7 +1,7 @@
 /**
  * Copyright(c) 2009 Cnangel, All Rights Reserved.
  * 
- * @file ucmain.h
+ * @file uccexam.h
  * @details for uc template 
  * @author cnangel
  * @version 1.0.0

@@ -43,5 +43,6 @@ m4
 missing
 config.h
 libtool
-src/ucrun
+src/uccmain
+src/uccppmain
 uc-config
