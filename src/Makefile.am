@@ -21,7 +21,8 @@ libuc_la_LDFLAGS		= -no-undefined \
 						  -version-info @LT_VERSION_INFO@ \
 						  -release @PACKAGE_RELEASE@ \
 						  $(NULL)
-
+libuc_la_CPPFLAGS		= -I$(top_srcdir)/src \
+						  $(NULL)
 libucincludedir			= $(includedir)/@PACKAGE_NAME@
 libucinclude_HEADERS	= uc.h \
 						  ucmain.h \
@@ -34,4 +35,5 @@ ucrun_SOURCES			= ucrun.c
 # ucrun_CXXFLAGS		= -Wno-deprecated
 ucrun_LDADD				= libuc.la
 ucrun_LDFLAGS			= -static
+ucrun_CPPFLAGS			= -I$(top_srcdir)/src 
 

@@ -1,23 +1,19 @@
 /**
  * Copyright(c) 2010 Alibaba Company, All Rights Reserved.
  * 
- * @file uccpp.cpp
- * @details 
+ * @file common.h
+ * @details common header file
  * @author cnangel
  * @version 1.0.0
- * @date 2010/04/01 17:50:37
+ * @date 2010/04/01 17:42:45
  */
 
-#include <uccpp.h>
+#ifndef __COMMON_H__
+#define __COMMON_H__
 
-using namespace uc;
+#include <stdint.h>
 
-bool
-UCCpp::getRoot()
-{
-	return true;
-}
-
+#endif //__COMMON_H__
 
 /*
  * Local variables:

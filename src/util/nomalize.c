@@ -8,7 +8,7 @@
  * @date 2010/01/06 23:54:39
  */
 
-#include <nomalize.h>
+#include <util/nomalize.h>
 
 int lcchar(char *str, size_t strLen)
 {

@@ -11,6 +11,10 @@
 #ifndef __UCMAIN_H__
 #define __UCMAIN_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <string.h>
 #include <stdlib.h>
 
@@ -22,6 +26,10 @@
  * @return 1 if fail; otherwise, return 0.
  */
 extern int helloworld(const char *src, char *desc, int flag);
+
+#ifdef __cplusplus
+ }
+#endif
 
 #endif //__UCMAIN_H__
 

@@ -106,7 +106,7 @@ main ()
         printf("*** so that the correct libraries are found at run-time))\n");
    }
 
-   uc::Category& log = uc::Category::getRoot();
+   uc::Category& log = uc::UCCpp::getRoot();
    return 1;
 }
 ],, no_uc=yes,[echo $ac_n "cross compiling; assumed OK... $ac_c"])
@@ -135,7 +135,7 @@ echo "*** The uc-config script installed by UC could not be found"
           LIBS="$LIBS $UC_LIBS"
           AC_TRY_LINK([
 #include <uc/uc.h>
-],      [ uc::getRoot(); return 0; ],
+],      [ uc::UCCpp::getRoot(); return 0; ],
         [ echo "*** The test program compiled, but did not run. This usually means"
           echo "*** that the run-time linker is not finding UC or finding the wrong"
           echo "*** version of UC. If it is not finding UC, you'll need to set your"

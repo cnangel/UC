@@ -11,6 +11,10 @@
 #ifndef __UTIL_NOMALIZE_H__
 #define __UTIL_NOMALIZE_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <string.h>
 #include <stdlib.h>
 
@@ -29,6 +33,10 @@ extern int lcchar(char *str, size_t strLen);
  * @return 1 if fail; otherwise, return 0.
  */
 extern int ucchar(char *str, size_t strLen);
+
+#ifdef __cplusplus
+ }
+#endif
 
 #endif //__UTIL_NOMALIZE_H__
 

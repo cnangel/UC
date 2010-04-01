@@ -8,7 +8,7 @@
  * @date 2010/01/06 23:45:40 
  */
 
-#include <uc.h>
+#include <common.h>
 #include <util/nomalize.h>
 
 /* desc must relocate space, otherwise not safe */
