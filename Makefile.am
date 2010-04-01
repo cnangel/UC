@@ -6,9 +6,7 @@ CURRENTPATH			= $(shell /bin/pwd)
 ACLOCAL_AMFLAGS		= -I m4
 # install m4 files
 m4datadir			= aclocal
-m4data_DATA			= uc.m4 \
-					  acinclude.m4 \
-					  $(NULL)
+m4data_DATA			= uc.m4 
 
 # install uc.pc
 pcdatadir			= $(libdir)/pkgconfig
@@ -23,6 +21,8 @@ RPMBUILDTOPDIR		= $(shell unset RPMBUILDTOPDIR; if [ -f ${HOME}/.rpmmacros ]; th
 
 EXTRA_DIST			= autogen.sh \
 					  uc.spec \
+					  acinclude.m4 \
+					  uc.m4 \
 					  $(NULL)
 
 SUBDIRS				= include \

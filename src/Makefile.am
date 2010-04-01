@@ -11,7 +11,7 @@ lib_LTLIBRARIES				= libuc.la
 
 libuc_la_SOURCES			= uccexam.c uccexam.h \
 							  uccppexam.cpp uccppexam.h \
-							  uc.h \
+							  uc.h common.h \
 							  $(NULL)
 libuc_la_LIBADD				= util/libnomalize.la
 libuc_la_CPPFLAGS			= -I$(top_srcdir)/src  -D_FILE_OFFSET_BITS=64
@@ -24,6 +24,7 @@ libuc_la_CPPFLAGS			= -I$(top_srcdir)/src \
 							  $(NULL)
 libucincludedir				= $(includedir)/@PACKAGE_NAME@
 libucinclude_HEADERS		= uc.h \
+							  common.h \
 							  uccexam.h \
 							  uccppexam.h \
 							  $(NULL)
