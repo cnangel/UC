@@ -10,7 +10,8 @@
 
 
 #include <stdio.h>
-#include <uc.h>
+#include <ucmain.h>
+#include <util/nomalize.h>
 
 #define MAXSPACE 1024
 
