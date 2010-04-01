@@ -11,6 +11,7 @@ SUBDIRS					= util \
 lib_LTLIBRARIES			= libuc.la
 
 libuc_la_SOURCES		= ucmain.c ucmain.h \
+						  uccpp.cpp uccpp.h \
 						  uc.h \
 						  $(NULL)
 libuc_la_LIBADD			= util/libnomalize.la
@@ -24,6 +25,7 @@ libuc_la_LDFLAGS		= -no-undefined \
 libucincludedir			= $(includedir)/@PACKAGE_NAME@
 libucinclude_HEADERS	= uc.h \
 						  ucmain.h \
+						  uccpp.h \
 						  $(NULL)
 
 bin_PROGRAMS			= ucrun

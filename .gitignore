@@ -44,3 +44,4 @@ missing
 config.h
 libtool
 src/ucrun
+uc-config

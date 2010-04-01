@@ -11,8 +11,11 @@
 #ifndef __UC_H__
 #define __UC_H__
 
+//extern "C" {
 #include <ucmain.h>
 #include <util/nomalize.h>
+//}
+#include <uccpp.h>
 
 #endif //__UC_H__
 
