@@ -24,6 +24,9 @@ SUBDIRS = include \
 pcdatadir = $(libdir)/pkgconfig
 pcdata_DATA = @PACKAGE@.pc
 
+# install scripts
+bin_SCRIPTS = uc-config
+
 # define rpm build root
 RPMBUILDTOPDIR = $(shell unset RPMBUILDTOPDIR; if [ -f ${HOME}/.rpmmacros ]; then export RPMBUILDTOPDIR=`grep _topdir ${HOME}/.rpmmacros|awk '{print $$2}'`; else export RPMBUILDTOPDIR=/usr/src/redhat; fi; echo $${RPMBUILDTOPDIR};)
 # `rpm --showrc | $(PERL) -n -e 'print if(s/.*_topdir\s+(.*)/$$1/)'` ;
@@ -43,7 +46,7 @@ rpm: doc dist @PACKAGE@.spec
 
 CLEANDIRS = doc/doxygen
 DISTCLEANFILES = .deps Makefile 
-CLEANFILES = *~ *.log uc-*.tar.gz
+CLEANFILES = *~ *.log uc-*.tar.gz uc-config
 MAINTAINERCLEANFILES = Makefile.in
 
 clean-local:
