@@ -295,6 +295,7 @@ dnl fi
 AC_CONFIG_FILES([Makefile
 				 uc.spec
 				 uc.pc
+				 uc-config
 				 conf/Makefile
 				 myconfig.h:src/config.h.in
 				 data/Makefile
