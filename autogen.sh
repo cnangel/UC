@@ -19,6 +19,7 @@ if ! type $AUTORECONF >/dev/null 2>&1; then
   exit 1
 fi
 
+test ! -d "$srcdir/m4" &&  mkdir "$srcdir/m4"
 $AUTORECONF -v --install || exit $?
 cd "$ORIGDIR" || exit $?
 
