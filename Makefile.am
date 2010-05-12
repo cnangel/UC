@@ -42,6 +42,7 @@ SUBDIRS				= include \
 doc:
 	$(mkdir_p) @DOXYGEN_OUTPUT_DIR@
 	doxygen
+	sed -i -e "s/charset=iso-8859-1/charset=utf-8/g" $(top_srcdir)/doc/doxygen/html/*.html
 
 rpm: doc dist @PACKAGE@.spec
 	$(RM) ${RPMBUILDTOPDIR}/SOURCES/$(distdir).tar.gz
