@@ -7,5 +7,5 @@ Name: @PACKAGE_NAME@
 Description: A auto template for c/c++
 URL: @URL@
 Version: @VERSION@
-Libs: -L${libdir} -luc
+Libs: -L${libdir} -l@PACKAGE@
 Cflags: -I${includedir}
