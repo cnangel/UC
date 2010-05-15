@@ -1,3 +1,5 @@
+# $Id: Makefile.am,v 1.0.0-0 2010/05/15 20:21:28 Cnangel Exp $
+
 AUTOMAKE_OPTIONS			= foreign
 
 # AM_LDFLAGS				= -fPIC -L/usr/local/lib@BITS@ -pthread

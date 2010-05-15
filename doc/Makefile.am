@@ -1,3 +1,5 @@
+# $Id: Makefile.am,v 1.0.0-0 2010/05/15 20:22:07 Cnangel Exp $
+
 AUTOMAKE_OPTIONS = foreign
 
 doxygen_dir = $(shell if [ -d $(top_srcdir)/@DOXYGEN_OUTPUT_DIR@ ]; then echo $(top_srcdir)/@DOXYGEN_OUTPUT_DIR@; fi)

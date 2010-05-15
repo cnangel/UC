@@ -1,3 +1,5 @@
+# $Id: Makefile.am,v 1.0.0-0 2010/05/15 20:21:49 Cnangel Exp $
+
 AUTOMAKE_OPTIONS 	= foreign
 
 EXTRA_DIST			= template.cpp template.h 

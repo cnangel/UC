@@ -1,3 +1,5 @@
+# $Id: Makefile.am,v 1.0.0-0 2010/05/15 20:21:58 Cnangel Exp $
+
 AUTOMAKE_OPTIONS = foreign
 
 EXTRA_DIST = example.sh

@@ -1,3 +1,5 @@
+# $Id: Makefile.am,v 1.0.0-0 2010/05/14 11:09:28 Cnangel Exp $
+
 # AUTOMAKE_OPTIONS	= foreign 1.11.1
 AUTOMAKE_OPTIONS	= foreign 
 
@@ -6,23 +8,23 @@ CURRENTPATH			= $(shell /bin/pwd)
 ACLOCAL_AMFLAGS		= -I m4
 # install m4 files
 m4datadir			= aclocal
-m4data_DATA			= uc.m4 
+m4data_DATA			= @PACKAGE@.m4 
 
-# install uc.pc
+# install @PACKAGE@.pc
 pcdatadir			= $(libdir)/pkgconfig
 pcdata_DATA			= @PACKAGE@.pc
 
-# install uc-config
-bin_SCRIPTS			= uc-config
+# install @PACKAGE@-config
+bin_SCRIPTS			= @PACKAGE@-config
 
 # define rpm build root
 RPMBUILDTOPDIR		= $(shell unset RPMBUILDTOPDIR; if [ -f ${HOME}/.rpmmacros ]; then export RPMBUILDTOPDIR=`grep _topdir ${HOME}/.rpmmacros|awk '{print $$2}'`; else export RPMBUILDTOPDIR=/usr/src/redhat; fi; echo $${RPMBUILDTOPDIR};)
 # `rpm --showrc | $(PERL) -n -e 'print if(s/.*_topdir\s+(.*)/$$1/)'` ;
 
 EXTRA_DIST			= autogen.sh \
-					  uc.spec \
+					  @PACKAGE@.spec \
 					  acinclude.m4 \
-					  uc.m4 \
+					  @PACKAGE@.m4 \
 					  $(NULL)
 
 SUBDIRS				= include \
@@ -53,7 +55,7 @@ rpm: doc dist @PACKAGE@.spec
 
 CLEANDIRS			= doc/doxygen
 DISTCLEANFILES		= .deps Makefile 
-CLEANFILES			= *~ *.log uc-*.tar.gz uc-config
+CLEANFILES			= *~ *.log @PACKAGE@-*.tar.gz @PACKAGE@-config
 MAINTAINERCLEANFILES = Makefile.in
 
 clean-local:
