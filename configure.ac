@@ -291,6 +291,8 @@ dnl then
 dnl   AC_MSG_WARN([rst2html not found, documentation rebuild will not be possible])
 dnl fi
 
+AM_CONDITIONAL(PLATFORM64, test x$BITS != x)
+
 AC_CONFIG_FILES([Makefile
 				 uc.spec
 				 uc.pc
