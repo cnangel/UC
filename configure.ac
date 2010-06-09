@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 dnl $Id: configure.ac,v 1.0.1 2009/07/29 17:58:36 Cnangel Exp $
 
-AC_PREREQ(2.59)
+AC_PREREQ([2.59])
 # define([UC_MAJOR_VERSION],[0])
 # define([UC_MINOR_VERSION],[0])
 # define([UC_MICRO_VERSION],[1])
@@ -53,14 +53,15 @@ AC_SUBST(URL)
 #AC_SUBST(CHANGELOG)
 
 AC_CONFIG_MACRO_DIR([m4])
-AC_CONFIG_SRCDIR([src/uc.h])
 #AM_CONFIG_HEADER([config.h])
+AC_CONFIG_SRCDIR([src/config.h.in])
 AC_CONFIG_HEADER([config.h])
 AM_INIT_AUTOMAKE([tar-ustar])
 AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
 
 # Checks for programs.
 AC_PROG_CXX
+AC_PROG_AWK
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_LIBTOOL
@@ -293,7 +294,8 @@ dnl fi
 
 AM_CONDITIONAL(PLATFORM64, test x$BITS != x)
 
-AC_CONFIG_FILES([Makefile
+AC_CONFIG_FILES([Doxyfile
+		         Makefile
 				 uc.spec
 				 uc.pc
 				 uc-config
@@ -307,8 +309,7 @@ AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/util/Makefile
                  test/Makefile
-				 tools/Makefile
-				 Doxyfile])
+				 tools/Makefile])
 AC_OUTPUT
 
 dnl # AC_OUTPUT_COMMANDS([echo this is extra $fubar, and so on.], fubar=$fubar) 

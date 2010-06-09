@@ -1,5 +1,5 @@
 # Configure paths for UC
-# Owen Taylor     97-11-3
+# $Id: uc.m4,v 1.0.0-0 2010/06/09 14:39:39 Cnangel Exp $
 
 dnl AM_PATH_UC([MINIMUM-VERSION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]]])
 dnl Test for UC, and define UC_CFLAGS and UC_LIBS

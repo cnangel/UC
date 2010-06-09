@@ -1,6 +1,6 @@
 uc
 
-This is a tempalte about autoconf and automation. 
+This is a tempalte project about autoconf and automation. 
 You can use create package like tar, gz, bzip, zip and rpm, and version
 and some args can match from some file as Changlog and README.
 
