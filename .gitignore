@@ -46,3 +46,4 @@ libtool
 src/uccmain
 src/uccppmain
 uc-config
+src/ucrun

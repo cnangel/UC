@@ -278,6 +278,20 @@ dnl AS_IF([test "x$with_alog" != "xno"],
       dnl ]
      dnl )  
 
+dnl AC_ARG_ENABLE([iconv],
+		dnl [AS_HELP_STRING([--enable-iconv], [enable iconv support.])]
+		dnl )
+dnl AC_MSG_CHECKING([whether do enable iconv support])
+dnl AS_IF([test "x$enable_iconv" = "xyes"],
+		dnl [
+			dnl AC_MSG_RESULT([yes])
+			dnl AC_CHECK_LIB([iconv], [main])
+		dnl ],
+		dnl [
+			dnl AC_MSG_RESULT([no])
+		dnl ]
+	 dnl )
+
 AC_CHECK_EXTRA_OPTIONS
 
 dnl # all_includes="$all_includes -I/usr/include/foo"
