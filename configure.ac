@@ -293,6 +293,8 @@ dnl AS_IF([test "x$enable_iconv" = "xyes"],
 	 dnl )
 
 AC_CHECK_EXTRA_OPTIONS
+dnl MY_ARG_WITH([a_b], [no])
+dnl MY_ARG_WITH([abcd], [yes])
 
 dnl # all_includes="$all_includes -I/usr/include/foo"
 dnl # all_libraries="$all_libraries -L/usr/lib/foo"
