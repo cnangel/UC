@@ -281,7 +281,7 @@ dnl AS_IF([test "x$with_alog" != "xno"],
 dnl AC_ARG_ENABLE([iconv],
 		dnl [AS_HELP_STRING([--enable-iconv], [enable iconv support.])],
 		dnl [],
-		dnl []
+		dnl [enable_iconv=no]
 		dnl )
 dnl AC_MSG_CHECKING([whether do enable iconv support])
 dnl AS_IF([test "x$enable_iconv" = "xyes"],
