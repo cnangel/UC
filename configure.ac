@@ -305,6 +305,22 @@ dnl AS_IF([test "x$enable_iconv" = "xyes"],
 		dnl ]
 	 dnl )
 
+AC_ARG_WITH([libiconv],
+		[AS_HELP_STRING([--with-libiconv], [with libiconv support.])],
+		[],
+		[with_libiconv=no]
+		)
+AC_MSG_CHECKING([whether do with libiconv support])
+AS_IF([test "x$with_libiconv" = "xyes"],
+		[
+			AC_MSG_RESULT([yes])
+			AC_CHECK_LIB([iconv], [main])
+		],
+		[
+			AC_MSG_RESULT([no])
+		]
+	 )
+
 AC_CHECK_EXTRA_OPTIONS
 MY_ARG_WITH([a_b], [no])
 MY_ARG_WITH([abcd], [yes])

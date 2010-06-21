@@ -17,7 +17,8 @@ install-doc-local:
 	@echo install doc files to $(doctodir)
 	@test -d $(doctodir) || mkdir -p $(doctodir)
 	$(INSTALL_DATA) $(doc_srcfiles) $(doctodir)
-	@test ! -d $(doxygen_dir) \
+#	@if [ ! -z $(doxygen_dir) -a -d $(doxygen_dir) ] ; then cp -r $(doxygen_dir) $(doctodir); fi;
+	@test -z $(doxygen_dir) || test ! -d $(doxygen_dir) \
 		|| cp -r $(doxygen_dir) $(doctodir)
 
 uninstall: uninstall-doc-local

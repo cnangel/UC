@@ -16,7 +16,11 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id} -u -n)
 
 Packager: Cnangel <cnangel@gmail.com>
 #Requires: 
-BuildRequires: cppunit-devel
+BuildRequires: cppunit-devel 
+#%if %{with libiconv} 
+#BuildRequires: libiconv-devel 
+#%endif
+#%bcond_with libiconv 
 
 %description
 %{name} is a template for automake.
@@ -51,7 +55,7 @@ If you want to known develop programs and application about %{name}, you will ne
 %setup -q
 
 %build
-%configure
+%configure %{?_with_libiconv}
 make %{?_smp_mflags}
 make check
 
