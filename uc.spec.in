@@ -124,7 +124,10 @@ ldconfig
 %{_docdir}
 
 %changelog
-* Wed Aug 19 2009 Cnangel <cnangel@gmail.com> 0.0.3-5
+* Wed Jun 09 2010 Cnangel <cnangel@gmail.com> 0.0.4-1
+- Add uc-config and uc.pc for development.
+- Add uc.m4 for configure paths.
+* Wed Aug 19 2009 Cnangel <cnangel@gmail.com> 0.0.3
 - Add more headers design;
 - Add test, you can use Check for c or Cppunit for c++(default: cppunit);
 - Add tools and script directory, and delete not use files like Makefile.in etc.;
