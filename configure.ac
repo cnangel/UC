@@ -33,6 +33,16 @@ LT_MAJOR=`grep 'lib\*\.so\.' ChangeLog | cut -d. -f3 | tr -d "\n"`
 LT_REVISION=`grep 'lib\*\.so\.' ChangeLog | cut -d. -f4 | tr -d "\n"`
 LT_AGE=`grep 'lib\*\.so\.' ChangeLog | cut -d. -f5 | cut -d';' -f1 | tr -d "\n"`
 LT_VERSION_INFO=$LT_MAJOR:$LT_REVISION:$LT_AGE
+#                    |          |          |
+#                  +-+	    +---+   +------+
+#                  |		|       |
+#                 current:revision:age
+#                  |        |     |
+#                  |        |     +- increment if interfaces have been added
+#                  |        |        set to zero if interfaces have been removed or changed
+#                  |        +- increment if source code has changed
+#                  |           set to zero if current is incremented
+#                  +- increment if interfaces have been added, removed or changed
 DOXYGEN_OUTPUT_DIR=`grep DOXYGEN_OUTPUT_DIR ChangeLog | awk 'NR==1 {print $4}' | cut -d';' -f1 | tr -d "\n"`
 URL=`grep visit ChangeLog | grep http | grep update | awk 'NR==1 {print $5}' | tr -d "\n"`
 #CHANGELOG=`./tools/changelog.pl README ChangeLog`
@@ -52,6 +62,7 @@ AC_SUBST(DOXYGEN_OUTPUT_DIR)
 AC_SUBST(URL)
 #AC_SUBST(CHANGELOG)
 
+missing_dir=`mkdir -p m4`
 AC_CONFIG_MACRO_DIR([m4])
 #AM_CONFIG_HEADER([config.h])
 AC_CONFIG_SRCDIR([src/config.h.in])

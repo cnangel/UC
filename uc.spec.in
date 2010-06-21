@@ -108,7 +108,7 @@ ldconfig
 %defattr(-,root,root,-)
 %{_includedir}
 %{_libdir}/*.a
-%{_libdir}/*.la
+%exclude %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 
 %files data
