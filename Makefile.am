@@ -41,11 +41,18 @@ SUBDIRS				= include \
 
 .PHONY: rpm doc
 
+# make doc WITH_FOO=1, like spec file: make %{?_with_iconv_macro}
 doc:
+@MK@ifeq ($(WITH_FOO), 1)
+@MK@	@echo "Only for ifeq test with FOO ... OK"
+@MK@else
+@MK@	@echo "Not with FOO ... OK"
+@MK@endif
 	$(mkdir_p) @DOXYGEN_OUTPUT_DIR@
 	doxygen
 	sed -i -e "s/charset=iso-8859-1/charset=utf-8/g" $(top_srcdir)/doc/doxygen/html/*.html
 
+# for make rpm --with foo : make rpm OPTIONS='--with foo'
 rpm: doc dist @PACKAGE@.spec
 	$(RM) ${RPMBUILDTOPDIR}/SOURCES/$(distdir).tar.gz
 	$(RM) ${RPMBUILDTOPDIR}/SPECS/@PACKAGE@.spec

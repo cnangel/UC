@@ -46,6 +46,7 @@ LT_VERSION_INFO=$LT_MAJOR:$LT_REVISION:$LT_AGE
 DOXYGEN_OUTPUT_DIR=`grep DOXYGEN_OUTPUT_DIR ChangeLog | awk 'NR==1 {print $4}' | cut -d';' -f1 | tr -d "\n"`
 URL=`grep visit ChangeLog | grep http | grep update | awk 'NR==1 {print $5}' | tr -d "\n"`
 #CHANGELOG=`./tools/changelog.pl README ChangeLog`
+MK=''
 
 AC_SUBST(PACKAGE_NAME)
 AC_SUBST(PACKAGE_VERSION)
@@ -61,6 +62,7 @@ AC_SUBST(BITS)
 AC_SUBST(DOXYGEN_OUTPUT_DIR)
 AC_SUBST(URL)
 #AC_SUBST(CHANGELOG)
+AC_SUBST(MK)
 
 missing_dir=`mkdir -p m4`
 AC_CONFIG_MACRO_DIR([m4])

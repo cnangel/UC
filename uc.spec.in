@@ -56,7 +56,8 @@ If you want to known develop programs and application about %{name}, you will ne
 
 %build
 %configure %{?_with_libiconv}
-make %{?_smp_mflags}
+# for rpmbuild --define='_with_foo_macro WITH_FOO=1' -ba uc.spec
+make %{?_smp_mflags} %{_with_foo_macro}
 make check
 
 %install
