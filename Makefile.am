@@ -51,7 +51,7 @@ rpm: doc dist @PACKAGE@.spec
 	$(RM) ${RPMBUILDTOPDIR}/SPECS/@PACKAGE@.spec
 	$(LN_S) `pwd`/$(distdir).tar.gz ${RPMBUILDTOPDIR}/SOURCES
 	$(LN_S) `pwd`/@PACKAGE@.spec ${RPMBUILDTOPDIR}/SPECS
-	rpmbuild -ba ${RPMBUILDTOPDIR}/SPECS/@PACKAGE@.spec
+	rpmbuild -ba ${RPMBUILDTOPDIR}/SPECS/@PACKAGE@.spec $(OPTIONS)
 
 CLEANDIRS			= doc/doxygen
 DISTCLEANFILES		= .deps Makefile 
