@@ -55,9 +55,9 @@ If you want to known develop programs and application about %{name}, you will ne
 %setup -q
 
 %build
-%configure %{?_with_libiconv}
+%configure %{?_with_libiconv} %{?_with_tomcat}
 # for rpmbuild --define='_with_foo_macro WITH_FOO=1' -ba uc.spec
-make %{?_smp_mflags} %{_with_foo_macro}
+make %{?_smp_mflags} %{?_with_foo_macro}
 make check
 
 %install
