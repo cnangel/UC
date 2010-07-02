@@ -46,6 +46,7 @@ LT_VERSION_INFO=$LT_MAJOR:$LT_REVISION:$LT_AGE
 DOXYGEN_OUTPUT_DIR=`grep DOXYGEN_OUTPUT_DIR ChangeLog | awk 'NR==1 {print $4}' | cut -d';' -f1 | tr -d "\n"`
 URL=`grep visit ChangeLog | grep http | grep update | awk 'NR==1 {print $5}' | tr -d "\n"`
 #CHANGELOG=`./tools/changelog.pl README ChangeLog`
+GCC_VERSION=`gcc -dumpversion | sed 's/\([[0-9]]\{1,\}\.[[0-9]]\{1,\}\)\.*\([[0-9]]\{1,\}\)\{0,1\}/\1\2/'`
 MK=''
 
 AC_SUBST(PACKAGE_NAME)
@@ -340,6 +341,7 @@ dnl   AC_MSG_WARN([rst2html not found, documentation rebuild will not be possibl
 dnl fi
 
 AM_CONDITIONAL(PLATFORM64, test x$BITS != x)
+AM_CONDITIONAL(GCC4, expr $GCC_VERSION '>=' 4)
 
 AC_CONFIG_FILES([Doxyfile
 		         Makefile
