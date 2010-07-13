@@ -341,7 +341,7 @@ dnl   AC_MSG_WARN([rst2html not found, documentation rebuild will not be possibl
 dnl fi
 
 AM_CONDITIONAL(PLATFORM64, test x$BITS != x)
-AM_CONDITIONAL(GCC4, expr $GCC_VERSION '>=' 4)
+AM_CONDITIONAL(GCC4, expr $GCC_VERSION '>=' 4 >/dev/null)
 
 AC_CONFIG_FILES([Doxyfile
 		         Makefile
