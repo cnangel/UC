@@ -5,12 +5,22 @@ dnl AC_CHECK_EXTRA_OPTIONS
 dnl -------------------------------------------------------------------------
 AC_DEFUN([AC_CHECK_EXTRA_OPTIONS],[
 
+dnl -------------------------------------------------------------------------
+dnl Enable debug with -g -Wall -D_DEBUG
+dnl -------------------------------------------------------------------------
 AC_MSG_CHECKING(for debugging)
-AC_ARG_ENABLE(debug, [  --enable-debug          compile for debugging])
+AC_ARG_ENABLE(debug, [  --enable-debug          compile for debugging @<:@default=yes@:>@])
 if test -z "$enable_debug" ; then
+	CFLAGS="${CFLAGS} -g -Wall -D_DEBUG -fPIC"
+	CXXFLAGS="${CXXFLAGS} -g -Wall -D_DEBUG -fPIC"
+elif test $enable_debug != "yes" ; then
 	enable_debug="no"
-elif test $enable_debug = "yes" ; then
-	CPPFLAGS="${CPPFLAGS} -g -D_DEBUG"
+	CFLAGS="${CFLAGS} -g -O2 -fPIC";
+	CXXFLAGS="${CXXFLAGS} -g -O2 -fPIC";
+else
+	enable_debug="yes"
+	CFLAGS="${CFLAGS} -g -Wall -D_DEBUG -fPIC"
+	CXXFLAGS="${CXXFLAGS} -g -Wall -D_DEBUG -fPIC"
 fi
 AC_MSG_RESULT([$enable_debug])
 
