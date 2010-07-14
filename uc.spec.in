@@ -9,11 +9,13 @@ License: GPLv3
 Group: Development/Libraries
 Url: @URL@
 Source0: %{name}-%{version}.tar.gz
+Prefix: %_prefix
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id} -u -n)
 #BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 %define PACKAGE_HOME %{_datadir}/@PACKAGE@
 
+Vendor: Cnangel <cnangel@gmail.com>
 Packager: Cnangel <cnangel@gmail.com>
 #Requires: 
 BuildRequires: cppunit-devel 
