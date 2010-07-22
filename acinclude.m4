@@ -11,16 +11,16 @@ dnl -------------------------------------------------------------------------
 AC_MSG_CHECKING(for debugging)
 AC_ARG_ENABLE(debug, [  --enable-debug          compile for debugging @<:@default=yes@:>@])
 if test -z "$enable_debug" ; then
-	CFLAGS="${CFLAGS} -g -Wall -D_DEBUG -fPIC"
-	CXXFLAGS="${CXXFLAGS} -g -Wall -D_DEBUG -fPIC"
+	CFLAGS="${CFLAGS} -g -Wall -D_DEBUG"
+	CXXFLAGS="${CXXFLAGS} -g -Wall -D_DEBUG"
 elif test $enable_debug != "yes" ; then
 	enable_debug="no"
-	CFLAGS="${CFLAGS} -g -O2 -fPIC";
-	CXXFLAGS="${CXXFLAGS} -g -O2 -fPIC";
+	CFLAGS="${CFLAGS} -g -O2"
+	CXXFLAGS="${CXXFLAGS} -g -O2"
 else
 	enable_debug="yes"
-	CFLAGS="${CFLAGS} -g -Wall -D_DEBUG -fPIC"
-	CXXFLAGS="${CXXFLAGS} -g -Wall -D_DEBUG -fPIC"
+	CFLAGS="${CFLAGS} -g -Wall -D_DEBUG"
+	CXXFLAGS="${CXXFLAGS} -g -Wall -D_DEBUG"
 fi
 AC_MSG_RESULT([$enable_debug])
 

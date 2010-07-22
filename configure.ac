@@ -340,6 +340,25 @@ dnl then
 dnl   AC_MSG_WARN([rst2html not found, documentation rebuild will not be possible])
 dnl fi
 
+AC_ARG_ENABLE(gcov,
+    AS_HELP_STRING([--enable-gcov],
+        [enable test coverage with gcov @<:@default=no@:>@]),
+        [case "${enableval}" in
+           yes) gcov=true ;;
+           no)  gcov=false ;;
+           *)   AC_MSG_ERROR([bad value ${enableval} for --enable-gcov]) ;;
+         esac],
+   [gcov=false])
+
+AM_CONDITIONAL(GCOV, test x"$gcov" = "xtrue")
+
+AC_SUBST(GCC_GCOV_CFLAGS,
+["\
+-fprofile-arcs \
+-ftest-coverage \
+-lgcov \
+"])
+
 AM_CONDITIONAL(PLATFORM64, test x$BITS != x)
 AM_CONDITIONAL(GCC4, expr $GCC_VERSION '>=' 4 >/dev/null)
 
