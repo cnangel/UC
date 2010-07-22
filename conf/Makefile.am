@@ -4,7 +4,7 @@ AUTOMAKE_OPTIONS = foreign
 
 EXTRA_DIST = config.cfg
 
-conftodir = $(shell echo $(sysconfdir)|sed -e 's|/usr/etc|/etc|')
+conftodir = $(shell echo $(sysconfdir)|sed -e 's|^/usr/etc|/etc|')
 
 sysconftodir = $(conftodir)/@PACKAGE@
 
