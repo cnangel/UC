@@ -1,0 +1,543 @@
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# * This source file is part of libspmt.                            *
+# *                                                                 *
+# * See the file "LICENSE" for the copyright information and for    *
+# * the terms and conditions for copying, distribution and          *
+# * modification of this source file.                               *
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+# $Date$
+
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+# Prelude.
+AC_INIT([libspmt],[0.0.1],[chris.pickett AT mail.mcgill.ca])
+AC_PREREQ([2.59])
+AC_COPYRIGHT([Copyright (C) 2006, 2007 Christopher J. F. Pickett])
+
+# unique source file --- primitive safety check 
+AC_CONFIG_SRCDIR([config.h.in])
+
+# place where extra autoconf macros are kept
+AC_CONFIG_MACRO_DIR([m4])
+
+# place to put some extra build scripts installed
+AC_CONFIG_AUX_DIR([build-aux])
+
+# really severe build strictness
+AM_INIT_AUTOMAKE([-Wall -Werror gnits 1.10.1])
+
+# Configure options.
+# FIXME: macro for less redundant AC_ARG_WITH/ENABLE
+AC_ARG_ENABLE(cxx,
+	      AS_HELP_STRING([--enable-cxx],
+			     [enable compilation as C++ @<:@default=no@:>@]),
+              [case "${enableval}" in
+                 yes) cxx=true ;;
+                 no)  cxx=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-cxx]) ;;
+               esac],
+              [cxx=false])
+
+AM_CONDITIONAL(LANG_CXX, test x"$cxx" = "xtrue")
+
+AC_ARG_WITH(check,
+	    AS_HELP_STRING([--with-check],
+			   [use Check for unit testing @<:@default=yes@:>@]),
+            [case "${withval}" in
+               yes) check=true ;;
+               no)  check=false ;;
+               *)   AC_MSG_ERROR([bad value ${withval} for --with-check]) ;;
+             esac],
+            [check=true])
+
+AM_CONDITIONAL(CHECK, test x"$check" = "xtrue")
+
+AC_ARG_ENABLE(warnings,
+	      AS_HELP_STRING([--enable-warnings],
+			     [enable strict warning flags @<:@default=yes@:>@]),
+              [case "${enableval}" in
+                 yes) warnings=true ;;
+                 no)  warnings=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-warnings]) ;;
+               esac],
+              [warnings=true])
+
+AM_CONDITIONAL(WARNINGS, test x"$warnings" = "xtrue")
+
+AC_ARG_ENABLE(debug,
+	      AS_HELP_STRING([--enable-debug],
+			     [enable verbose debugging @<:@default=yes@:>@]),
+              [case "${enableval}" in
+                 yes) debug=true ;;
+                 no)  debug=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-debug]) ;;
+               esac],
+              [debug=true])
+
+AM_CONDITIONAL(DEBUG, test x"$debug" = "xtrue")
+
+if test x"$debug" = "xtrue"; then
+   AC_DEFINE(SPMT_DEBUG,1,enable verbose debugging)
+fi
+
+AC_ARG_ENABLE(symbols,
+	      AS_HELP_STRING([--enable-symbols],
+			     [enable debugging symbols @<:@default=yes@:>@]),
+              [case "${enableval}" in
+                 yes) symbols=true ;;
+                 no)  symbols=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-symbols]) ;;
+               esac],
+              [symbols=true])
+
+AM_CONDITIONAL(SYMBOLS, test x"$symbols" = "xtrue")
+
+AC_ARG_ENABLE(assertions,
+	      AS_HELP_STRING([--enable-assertions],
+                             [enable runtime checks and assertions @<:@default=yes@:>@]),
+              [case "${enableval}" in
+                 yes) assertions=true ;;
+                 no)  assertions=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-assertions]) ;;
+               esac],
+              [assertions=true])
+
+AM_CONDITIONAL(ASSERTIONS, test x"$assertions" = "xtrue")
+
+AC_ARG_ENABLE(gcov,
+	      AS_HELP_STRING([--enable-gcov],
+                             [enable test coverage with gcov @<:@default=no@:>@]),
+              [case "${enableval}" in
+                 yes) gcov=true ;;
+                 no)  gcov=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-gcov]) ;;
+               esac],
+              [gcov=false])
+
+AM_CONDITIONAL(GCOV, test x"$gcov" = "xtrue")
+
+AC_ARG_ENABLE(opt,
+	      AS_HELP_STRING([--enable-opt],
+                             [enable aggressive optimizations @<:@default=yes@:>@]),
+              [case "${enableval}" in
+                 yes) opt=true ;;
+                 no)  opt=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-opt]) ;;
+               esac],
+              [opt=true])
+
+AM_CONDITIONAL(OPT, test x"$opt" = "xtrue")
+
+AC_ARG_ENABLE(wpa,
+	      AS_HELP_STRING([--enable-wpa],
+                             [enable whole program analysis @<:@default=no@:>@]),
+              [case "${enableval}" in
+		 yes) wpa=true ;;
+                 no)  wpa=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-wpa]) ;;
+               esac],
+              [wpa=false])
+
+AM_CONDITIONAL(WPA, test x"$wpa" = "xtrue")
+
+if test x"$wpa" = "xtrue"; then
+   AC_DEFINE(SPMT_WPA,1,enable whole program analysis)
+fi
+
+AC_ARG_ENABLE(stats,
+	      AS_HELP_STRING([--enable-stats],
+                             [enable stats @<:@default=no@:>@]),
+              [case "${enableval}" in
+		 yes) stats=true ;;
+                 no)  stats=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-stats]) ;;
+               esac],
+              [stats=false])
+
+AM_CONDITIONAL(STATS, test x"$stats" = "xtrue")
+
+if test x"$stats" = "xtrue"; then
+   AC_DEFINE(SPMT_STATS,1,enable stats)
+fi
+
+AC_ARG_ENABLE(profiling,
+	      AS_HELP_STRING([--enable-profiling],
+                             [enable profiling with prof and gprof @<:@default=no@:>@]),
+              [case "${enableval}" in
+                 yes) profiling=true ;;
+                 no)  profiling=false ;;
+                 *)   AC_MSG_ERROR([bad value ${enableval} for --enable-profiling]) ;;
+               esac],
+              [profiling=false])
+
+AM_CONDITIONAL(PROFILING, test x"$profiling" = "xtrue")
+
+# choose C++ if --enable-cxx was used
+if test x"$cxx" = "xtrue"; then
+   AC_LANG([C++])
+else
+   AC_LANG([C])
+fi
+  
+# FIXME: detect gcc support for each flag, currently assumes gcc-4.1
+AC_SUBST(GCC_OUTPUT_CFLAGS,
+["\
+-pipe \
+-combine \
+"])
+
+AC_SUBST(GCC_DIALECT_CFLAGS,
+["\
+-ansi \
+-fhosted \
+"])
+
+AC_SUBST(GXX_DIALECT_CFLAGS,
+["\
+-ansi \
+-x c++ \
+-fno-exceptions \
+-fno-rtti \
+-fno-enforce-eh-specs \
+-static-libgcc \
+-fno-non-call-exceptions \
+-fno-unwind-tables \
+"])
+
+AC_SUBST(XLCXX_DIALECT_CFLAGS,
+["\
+-+ \
+"])
+
+# the -x none is needed to make the linker version of gcc not treat .o files as C++ files
+# the -lsupc++ is needed to make gcc link against support routines for C++
+AC_SUBST(GXX_CHECK_LDFLAGS,
+["\
+-x none \
+-lsupc++ \
+"])
+
+# FIXME: find a better place for -O0
+# FIXME: find a better place for -fhosted
+# FIXME: figure out if we should be using -Winline or not
+AC_SUBST(GCC_4_0_WARNING_CFLAGS,
+["\
+-pedantic \
+-Wimport \
+-Wfatal-errors \
+-Wformat=2 \
+-Winit-self \
+-Wmissing-include-dirs \
+-Wswitch-default \
+-Wswitch-enum \
+-Wunknown-pragmas \
+-Wstrict-aliasing=2 \
+-Wall \
+-Wextra \
+-Wfloat-equal \
+-Wundef \
+-Wshadow \
+-Wpointer-arith \
+-Wcast-qual \
+-Wcast-align \
+-Wwrite-strings \
+-Waggregate-return \
+-Wmissing-noreturn \
+-Wmissing-format-attribute \
+-Wnormalized=nfkc \
+-Wpacked \
+-Wredundant-decls \
+-Winvalid-pch \
+-Wdisabled-optimization \
+-Werror \
+"])
+
+AC_SUBST(GCC_4_0_IGNORED_WARNING_CFLAGS,
+["\
+-Wno-long-long \
+"])
+
+AC_SUBST(GCC_4_0_C_ONLY_WARNING_CFLAGS,
+["\
+-Wdiv-by-zero \
+-Wdeclaration-after-statement \
+-Wbad-function-cast \
+-Wstrict-prototypes \
+-Wold-style-definition \
+-Wmissing-prototypes \
+-Wmissing-declarations \
+-Wnested-externs \
+"])
+
+AC_SUBST(GCC_4_1_WARNING_CFLAGS,
+["\
+-Wunsafe-loop-optimizations \
+-Wvolatile-register-var \
+-Wstack-protector \
+"])
+
+AC_SUBST(GCC_4_1_C_ONLY_WARNING_CFLAGS,
+["\
+-Wc++-compat \
+"])
+
+# -Wlarger-than-2048: it's not clear how best to use this flag... is it best
+#                     to set a really small value and just not statically
+#                     define big arrays?
+# -Wunreachable-code: makes it difficult to have debugging code
+# -Wsystem-headers: can't be responsible for system headers 
+# -Wtraditional: conflicts with other warnings (can't have foo (void) OR foo ()!)
+# -Wconversion: don't use this because it is buggy and being fixed.
+# -Wpadded: we depend on compiler insertion of padding to compute alignment
+#           also, would require dummy variables in other structs.
+
+# -fno-inline-functions-called-once appears to be the only way to use
+# the inline keyword without provoking the warning: "-funit-at-a-time
+# is required for inlining of functions that are only called once"
+
+AC_SUBST(GCC_CHECK_IGNORED_WARNING_CFLAGS,
+["\
+-Wno-variadic-macros \
+-Wlarger-than-1048576 \
+"])
+
+AC_SUBST(GCC_4_3_CHECK_IGNORED_WARNING_CFLAGS,
+["\
+-fno-inline-functions-called-once \
+"])
+
+# FIXME: we took out -Wunused-macros here because of clash with builtins in gcc 4.3
+AC_SUBST(GCC_WARNING_CPPFLAGS,
+["\
+-Wall \
+-Wimport \
+-Wundef \
+-Werror \
+-pedantic \
+-ansi \
+"])
+
+AC_SUBST(XLC_WARNING_CFLAGS,
+["\
+-qhalt=i \
+"])
+
+AC_SUBST(GCC_SYMBOL_CFLAGS,
+["\
+-ggdb3 \
+-feliminate-unused-debug-symbols \
+-feliminate-unused-debug-types \
+"])
+
+AC_SUBST(XLC_SYMBOL_CFLAGS,
+["\
+-g \
+"])
+
+# FIXME: just use AC_DEFINE for this */
+AC_SUBST(GCC_DISABLED_ASSERTIONS_CPPFLAGS,
+["\
+-DNDEBUG \
+"])
+
+AC_SUBST(GCC_GCOV_CFLAGS,
+["\
+-fprofile-arcs \
+-ftest-coverage \
+-lgcov \
+"])
+
+# FIXME: defined XLC_OPT_CFLAGS... -O5 -qipa
+
+AC_SUBST(GCC_4_0_OPT_CFLAGS,
+["\
+-O3 \
+-fomit-frame-pointer \
+-fforce-addr \
+-fmerge-all-constants \
+-fmodulo-sched \
+-fgcse-sm \
+-fgcse-las \
+-fgcse-after-reload \
+-fsched-spec-load \
+-fsched-spec-load-dangerous \
+-fsched2-use-superblocks \
+-freschedule-modulo-scheduled-loops \
+-ftree-loop-linear \
+-ftree-loop-im \
+-ftree-loop-ivcanon \
+-fivopts \
+-ftree-vectorize \
+--param max-gcse-passes=3 \
+"])
+
+AC_SUBST(GCC_4_1_OPT_CFLAGS,
+["\
+-funsafe-loop-optimizations \
+"])
+
+AC_SUBST(GCC_4_1_C_ONLY_OPT_CFLAGS,
+["\
+-freorder-blocks-and-partition \
+"])
+
+AC_SUBST(GCC_WPA_CFLAGS,
+["\
+-finline \
+-finline-limit=60000 \
+--param inline-unit-growth=10000 \
+--param large-function-growth=10000 \
+"])
+
+# -fmudflapth: slows program down due to instrumentation
+AC_SUBST(GCC_PROFILING_CFLAGS,
+["\
+-p \
+-pg \
+-fno-omit-frame-pointer \
+"])
+
+# FIXME: XLC_PROFILE_GENERATE_CFLAGS: -qpdf1
+
+AC_SUBST(GCC_PROFILE_GENERATE_CFLAGS,
+["\
+-fprofile-generate \
+"])
+
+# FIXME: XLC_PROFILE_USE_CFLAGS: -qpdf2
+
+AC_SUBST(GCC_PROFILE_USE_CFLAGS,
+["\
+-fprofile-use \
+-fsched2-use-traces \
+-fvariable-expansion-in-unroller \
+"])
+
+# FIXME: use -fwhole-program for --enable-wpa
+# FIXME: enable -freorder-blocks-and-partition opt if --enable-symbols=no
+# gcc: -pg and -fomit-frame-pointer are incompatible
+# cc1: warning: -freorder-blocks-and-partition does not work with -g (currently)
+
+# Checks for programs.
+
+# don't let AC_PROG_CC force "-g -O2"
+saved_CFLAGS=${CFLAGS}
+AC_PROG_CC
+CFLAGS=${saved_CFLAGS}
+
+saved_CXXFLAGS=${CXXFLAGS}
+AC_PROG_CXX
+CXXFLAGS=${saved_CXXFLAGS}
+
+# set -march=cpu-type
+AX_GCC_ARCHFLAG([no])
+
+AC_PROG_LIBTOOL
+
+# detect gcc
+AC_MSG_CHECKING([for gcc compiler])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+[[
+#if !defined(__GNUC__)
+# error no gcc compiler
+#endif
+]])], [have_gcc=yes], [have_gcc=no])
+AC_MSG_RESULT([$have_gcc])
+
+AM_CONDITIONAL(GCC, test x"$have_gcc" = "xyes")
+
+if test x"$have_gcc" = "xyes"; then
+# detect gcc major version
+AC_MSG_CHECKING([for gcc major version])
+AC_RUN_IFELSE([AC_LANG_PROGRAM([[]],[[return __GNUC__;]])], [gcc_minor="$?"], [gcc_major="$?"])
+AC_MSG_RESULT([$gcc_major])
+
+# detect gcc minor version
+AC_MSG_CHECKING([for gcc minor version])
+AC_RUN_IFELSE([AC_LANG_PROGRAM([[]],[[return __GNUC_MINOR__;]])], [gcc_minor="$?"], [gcc_minor="$?"])
+AC_MSG_RESULT([$gcc_minor])
+fi
+
+# unfortunately it looks like automake doesn't know about scalars...
+AM_CONDITIONAL(GCC_4_0, test x"$gcc_major" = "x4" -a x"$gcc_minor" = "x0")
+AM_CONDITIONAL(GCC_4_1, test x"$gcc_major" = "x4" -a x"$gcc_minor" = "x1")
+AM_CONDITIONAL(GCC_4_3, test x"$gcc_major" = "x4" -a x"$gcc_minor" = "x3")
+
+# detect xlC
+AC_MSG_CHECKING([for xlc compiler])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+[[
+#if !((defined(__IBMC__) || defined(__IBMCPP__)) && defined(__xlC__))
+# error no xlc compiler
+#endif
+]])], [have_xlc=yes], [have_xlc=no])
+AC_MSG_RESULT([$have_xlc])
+
+AM_CONDITIONAL(XLC, test x"$have_xlc" = "xyes")
+
+AC_MSG_CHECKING([for compiler and target architecture configuration])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+[[
+#if !(defined (__xlC__) && defined (_POWER) && !defined (__64BIT__))
+# error no xlc-ppc-32 support
+#endif
+]])], [target=xlc_ppc_32], [
+
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+[[
+#if !(defined (__xlC__) && defined (_POWER) && defined (__64BIT__))
+# error no xlc-ppc-64 support
+#endif
+]])], [target=xlc_ppc_64], [
+
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+[[
+#if !(defined (__GNUC__) && defined (__i386__))
+# error no gcc-x86-32 support
+#endif
+]])], [target=gcc_x86_32], [
+
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+[[
+#if !(defined (__GNUC__) && defined (__x86_64__))
+# error no gcc-x86-64 support
+#endif
+]])], [target=gcc_x86_64], [
+
+target=undefined])])])])
+
+case $target in
+  xlc_ppc_32) AC_DEFINE([XLC_PPC_32],[1],[xlc-ppc-32]) ;;
+  xlc_ppc_64) AC_DEFINE([XLC_PPC_64],[1],[xlc-ppc-64]) ;;
+  gcc_x86_32) AC_DEFINE([GCC_X86_32],[1],[gcc-x86-32]) ;;
+  gcc_x86_64) AC_DEFINE([GCC_X86_64],[1],[gcc-x86-64]) ;;
+  *) AC_ERROR([unrecognized compiler and architecture combination]) ;;
+esac
+AC_MSG_RESULT([$target])
+
+# Checks for libraries.
+
+if test "x$check" = "xtrue"; then
+  PKG_CHECK_MODULES([CHECK], [check >= 0.9.4])
+fi
+PKG_CHECK_MODULES([LIBCONFIG], [libconfig >= 1.2.1])
+ACX_PTHREAD
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_C_BIGENDIAN([AC_DEFINE([WORDS_BIGENDIAN],[1],[big-endian architecture])],
+               [AC_DEFINE([WORDS_LITTLEENDIAN],[1],[little-endian architecture])])
+
+# Checks for library functions.
+
+# Output files.
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_FILES([Makefile
+		 spmt.pc
+		 src/Makefile
+		 tests/Makefile])
+
+AC_OUTPUT
