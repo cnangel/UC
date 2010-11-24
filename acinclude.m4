@@ -39,3 +39,15 @@ AC_DEFUN([MY_ARG_WITH],
 
 ])
 
+AC_DEFUN([uc_WITH_BUILD_PATH],
+[
+    AC_ARG_WITH([build-path],
+    [  --with-build-path=DIR   build using DIR/include and DIR/lib],
+    [
+        for d in `echo $withval | tr : ' '`; do
+            test -d $d/include &amp;&amp; CPPFLAGS="$CPPFLAGS -I$d/include"
+            test -d $d/lib &amp;&amp; LDFLAGS="$LDFLAGS -L$d/lib"
+        done
+    ])
+])
+
