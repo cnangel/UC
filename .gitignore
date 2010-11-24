@@ -46,3 +46,4 @@ src/uccmain
 src/uccppmain
 uc-config
 src/ucrun
+config.h.in
