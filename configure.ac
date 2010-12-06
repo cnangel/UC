@@ -44,7 +44,7 @@ LT_VERSION_INFO=$LT_MAJOR:$LT_REVISION:$LT_AGE
 #                  |           set to zero if current is incremented
 #                  +- increment if interfaces have been added, removed or changed
 DOXYGEN_OUTPUT_DIR=`grep DOXYGEN_OUTPUT_DIR ChangeLog | awk 'NR==1 {print $4}' | cut -d';' -f1 | tr -d "\n"`
-URL=`grep visit ChangeLog | grep http | grep update | awk 'NR==1 {print $5}' | tr -d "\n"`
+PACKAGE_URL=`grep visit ChangeLog | grep http | grep update | awk 'NR==1 {print $5}' | tr -d "\n"`
 #CHANGELOG=`./tools/changelog.pl README ChangeLog`
 GCC_VERSION=`gcc -dumpversion | sed 's/\([[0-9]]\{1,\}\.[[0-9]]\{1,\}\)\.*\([[0-9]]\{1,\}\)\{0,1\}/\1\2/'`
 MK=''
@@ -61,7 +61,7 @@ AC_SUBST(LT_AGE)
 AC_SUBST(LT_VERSION_INFO)
 AC_SUBST(BITS)
 AC_SUBST(DOXYGEN_OUTPUT_DIR)
-AC_SUBST(URL)
+AC_SUBST(PACKAGE_URL)
 #AC_SUBST(CHANGELOG)
 AC_SUBST(MK)
 
