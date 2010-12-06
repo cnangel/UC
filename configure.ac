@@ -12,6 +12,7 @@ AC_PREREQ([2.59])
 # m4_define([version_suffix], [])
 # m4_define([version_full], m4_format([%d.%d.%d%s], version_major, version_minor, version_revision, version_suffix))
 AC_REVISION($Revision: esyscmd([grep -i Revision ChangeLog | awk 'NR==1 {print $5}' | tr -d "\n"]) $)dnl
+dnl # AC_INIT (package, version, [bug-report], [tarname], [url])
 AC_INIT(esyscmd([grep -i Revision ChangeLog | awk 'NR==1 {print $4}' | tr -d "\n"]), esyscmd([grep ^[[:digit:]\.] ChangeLog | awk 'NR==1 { max=$1 } NF>=1 { if ($1>max) max=$1; } END{print max}' | tr -d "\n"]), esyscmd([grep -i Copyright README | awk -F[\(\)\ ] 'BEGIN{i=0}{NR=i;i++};END{print $8}' | tr -d "\n"]))
 
 PACKAGE_NAME=`grep -i Revision ChangeLog | awk 'NR==1 {print tolower($4)}' | tr -d "\n"`
