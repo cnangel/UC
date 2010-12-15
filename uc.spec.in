@@ -1,4 +1,9 @@
 %define _tmppath %{_topdir}/BUILDROOT
+%define etc_flag	%(if test -z $etc ; then echo 0; else echo 1; fi;)
+
+%if %{etc_flag}
+%define _sysconfdir %{_prefix}/etc
+%endif
 
 Name: @PACKAGE_NAME@
 Version: @PACKAGE_VERSION@
