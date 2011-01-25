@@ -23,3 +23,5 @@ uninstall-include-local:
 	@echo rm -rf $(includetodir)
 	@test ! -d $(includetodir) \
 		|| rm -rf $(includetodir)
+
+#pkginclude_HEADERS = example.h
