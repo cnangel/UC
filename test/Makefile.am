@@ -14,8 +14,7 @@ test_sources		= uctf.cpp uctf.h \
 
 check_PROGRAMS		= dotest
 dotest_SOURCES		= dotest.cpp $(test_sources)
-dotest_LDFLAGS		= --static-libtool-libs \
-					  $(NULL)
+#dotest_LDFLAGS		= --static-libtool-libs 
 
 dotest_CPPFLAGS		= -I$(top_srcdir)/src \
 					  $(NULL)
