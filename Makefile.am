@@ -8,7 +8,8 @@ CURRENTPATH			= $(shell /bin/pwd)
 ACLOCAL_AMFLAGS		= -I m4
 # install m4 files
 m4datadir			= aclocal
-m4data_DATA			= @PACKAGE@.m4 
+m4data_DATA			= @PACKAGE@.m4 \
+					  $(NULL)
 
 # install @PACKAGE@.pc
 pcdatadir			= $(libdir)/pkgconfig
@@ -23,8 +24,15 @@ RPMBUILDTOPDIR		= $(shell unset RPMBUILDTOPDIR; if [ -f ${HOME}/.rpmmacros ]; th
 
 EXTRA_DIST			= autogen.sh \
 					  @PACKAGE@.spec \
-					  acinclude.m4 \
 					  @PACKAGE@.m4 \
+					  m4/AC_CREATE_PREFIX_CONFIG_H.m4 \
+					  m4/AC_C_INT64_T.m4 \
+					  m4/AC_FUNC_SNPRINTF.m4 \
+					  m4/BB_CHECK_PTHREADS.m4 \
+					  m4/BB_ENABLE_DOXYGEN.m4 \
+					  m4/ac_config_libconfig_in.m4 \
+					  m4/ac_config_pkgconfig_in.m4 \
+					  m4/acinclude.m4 \
 					  $(NULL)
 
 SUBDIRS				= include \
