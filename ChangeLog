@@ -1,7 +1,9 @@
 Revision history for uc v0.001
 RELEASE 1 NOW 
 
-0.0.5   
+0.0.5   Fri 22 Jul 2011 05:56:07 PM CST Cnangel
+        * Add lots of m4 files;
+        * Rename some files;
 0.0.4   Wed 09 Jun 2010 02:35:02 PM CST Cnangel
         * Add uc-config and uc.pc for development.
         * Add uc.m4 for configure paths.
