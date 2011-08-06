@@ -115,7 +115,9 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%if %{is_etc}
 ldconfig
+%endif
 
 %post devel
 if test "x$RPM_INSTALL_PREFIX0" != "x" ; then
@@ -125,7 +127,9 @@ if test "x$RPM_INSTALL_PREFIX0" != "x" ; then
 fi
 
 %postun
+%if %{is_etc}
 ldconfig
+%endif
 
 %files
 %defattr(-,root,root,-)
