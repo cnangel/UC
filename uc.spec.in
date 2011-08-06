@@ -156,6 +156,9 @@ ldconfig
 %defattr(-,root,root,-)
 %{_docdir}
 
+#%_iconsdir/*/*/*/*.png
+#%_localedir/*/*/*.mo
+
 %changelog
 * Wed Jun 09 2010 Cnangel <cnangel@gmail.com> 0.0.4-1
 - Add uc-config and uc.pc for development.
