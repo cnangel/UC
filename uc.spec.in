@@ -28,6 +28,7 @@
 %if %{is_etc}
 %define _sysconfdir %{_prefix}/etc
 %endif
+%define PACKAGE_HOME %{_datadir}/@PACKAGE@
 
 Name: @PACKAGE_NAME@
 Version: @PACKAGE_VERSION@
@@ -43,9 +44,6 @@ Prefix: %_prefix
 %endif
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id} -u -n)
 #BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-
-%define PACKAGE_HOME %{_datadir}/@PACKAGE@
-
 Vendor: Cnangel <cnangel@gmail.com>
 Packager: Cnangel <cnangel@gmail.com>
 #Requires: 
