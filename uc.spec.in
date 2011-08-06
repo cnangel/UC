@@ -42,6 +42,7 @@ Source0: %{name}-%{version}.tar.gz
 %if %{is_etc}
 Prefix: %_prefix
 %endif
+#BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id} -u -n)
 #BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Vendor: Cnangel <cnangel@gmail.com>
@@ -81,6 +82,16 @@ Requires: %{name} = %{version}-%{release}
 %description doc
 This package contains the development documentation and introduction or information for %{name}.
 If you want to known develop programs and application about %{name}, you will need to install %{name}-doc.
+
+#%package debuginfo
+#Summary: Debug information files for %{name}.
+#Group: %{group}
+#Requires: %{name} = %{version}-%{release} 
+#
+#%description debuginfo
+#This package contains the debug information files and source files for %{name}.
+#If you want to known develop programs and application about %{name}, you will need to install %{name}-debuginfo.
+
 
 %prep
 %setup -q
@@ -162,6 +173,12 @@ ldconfig
 
 #%_iconsdir/*/*/*/*.png
 #%_localedir/*/*/*.mo
+
+#%files debuginfo
+#%defattr(-,root,root,-)
+#/usr/lib
+#/usr/src
+
 
 %changelog
 * Wed Jun 09 2010 Cnangel <cnangel@gmail.com> 0.0.4-1
