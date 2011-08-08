@@ -78,7 +78,7 @@ AC_C_INT64_T
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([memset])
 
-# Checks for modules 
+# Checks for modules (Only for test pkgconfig)
 PKG_CHECK_MODULES([GLIB2], [glib-2.0 >= 2.0.0 ], , AC_MSG_ERROR([
                        *** glib-2.0 >= 2.0.0  is required to build.]))
 
