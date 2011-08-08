@@ -1,6 +1,9 @@
 Revision history for uc v0.001
 RELEASE 1 NOW 
 
+0.0.6   Mon 08 Aug 2011 08:51:18 PM CST Cnangel
+        * Fix some bug for m4 files;
+        * Let Makefile.am write so easy;
 0.0.5   Fri 22 Jul 2011 05:56:07 PM CST Cnangel
         * Add lots of m4 files;
         * Rename some files;

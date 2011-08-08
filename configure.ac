@@ -2,12 +2,12 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.59])
-AC_INIT([uc], [0.0.5], [cnangel@gmail.com])
-AC_CONFIG_SRCDIR([myconfig.h])
+AC_INIT([uc], [0.0.6], [cnangel@gmail.com])
+AC_CONFIG_SRCDIR([test/dotest.cpp])
 AM_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([tar-ustar])
-AM_INIT_AUTOMAKE([uc], [0.0.5])
+AM_INIT_AUTOMAKE([uc], [0.0.6])
 
 # Variable setting of package
 PACKAGE_RELEASE=1

@@ -45,3 +45,6 @@ uccppmain_LDADD				= libuc.la
 uccppmain_LDFLAGS			= -static
 uccppmain_CPPFLAGS			= -I$(top_srcdir)/src 
 
+# you can self-define target like this
+# mybindir					= $(bindir)
+# mybin_PROGRAMS			= mybin
