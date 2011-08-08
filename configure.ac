@@ -5,9 +5,11 @@ AC_PREREQ([2.59])
 AC_INIT([uc],[0.0.6],[cnangel@gmail.com])
 AC_CONFIG_SRCDIR([test/dotest.cpp])
 AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([tar-ustar])
 AM_INIT_AUTOMAKE([uc], [0.0.6])
+
 
 # Variable setting of package
 PACKAGE_RELEASE=1
