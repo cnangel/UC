@@ -1,27 +1,11 @@
-# $Id: Makefile.am,v 1.0.0-0 2010/05/14 11:09:39 Cnangel Exp $
+# $Id: Makefile.am,v 1.0.0-0 2011/08/08 17:46:01 Cnangel Exp $
 
-AUTOMAKE_OPTIONS = foreign
+AUTOMAKE_OPTIONS			= foreign
 
-EXTRA_DIST = example.h
+ucinclude_files				= example.h \
+							  $(NULL)
 
-includetodir = $(shell echo '$(datadir)/@PACKAGE@/include')
+EXTRA_DIST					= $(ucinclude_files)
 
-include_srcdir = $(shell ls $(top_srcdir)/include/*.h|grep -v Makefile|grep -v \.bak$$)
-
-install: install-include-local
-
-install-include-local:
-	@echo install include files to $(includetodir) ...
-#	@echo install include files to $(includedir) ...
-	@test -d $(includetodir) || $(INSTALL) -d $(includetodir)
-	$(INSTALL_DATA) $(include_srcdir) $(includetodir)
-
-uninstall: uninstall-include-local
-
-uninstall-include-local:
-	@echo uninstall include files from $(includetodir)
-	@echo rm -rf $(includetodir)
-	@test ! -d $(includetodir) \
-		|| rm -rf $(includetodir)
-
-#pkginclude_HEADERS = example.h
+ucincdatadir				= $(datadir)/@PACKAGE@/include
+ucincdata_DATA				= $(ucinclude_files)

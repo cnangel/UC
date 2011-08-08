@@ -1,26 +1,12 @@
-# $Id: Makefile.am,v 1.0.0-0 2010/05/15 20:22:51 Cnangel Exp $
+# $Id: Makefile.am,v 1.0.0-0 2011/08/06 16:22:18 Cnangel Exp $
 
-AUTOMAKE_OPTIONS = foreign
+AUTOMAKE_OPTIONS	= foreign
 
-EXTRA_DIST = index.dat
+data_directory		= index.dat \
+                      $(NULL)
 
-#data_DATA = index.dat
+EXTRA_DIST			= $(data_directory)
 
-datatodir = $(shell echo '$(datadir)/@PACKAGE@/data')
-data_srcfiles = $(shell ls $(top_srcdir)/data/*.*|grep -v Makefile|grep -v \.bak$$)
-
-install: install-localdata-local
-
-install-localdata-local:
-	@echo install data files to $(datatodir)
-	@test -d $(datatodir) || mkdir -p $(datatodir)
-	$(INSTALL_DATA) $(data_srcfiles) $(datatodir)
-
-uninstall: uninstall-localdata-local
-
-uninstall-localdata-local:
-	@echo uninstall data files from $(datatodir)
-	@test ! -d $(datatodir) \
-		|| rm -rf $(datatodir)
-	
+ucdatadir			= $(datadir)/@PACKAGE@/data
+ucdata_DATA			= $(data_directory)
 

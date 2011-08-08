@@ -1,26 +1,11 @@
-# $Id: Makefile.am,v 1.0.0-0 2010/05/15 20:22:28 Cnangel Exp $
+# $Id: Makefile.am,v 1.0.0-0 2011/08/08 17:47:52 Cnangel Exp $
 
-AUTOMAKE_OPTIONS = foreign
+AUTOMAKE_OPTIONS			= foreign
 
-EXTRA_DIST = example.so
+uclib_files					= example.so \
+							  $(NULL)
 
-libtodir = $(shell echo '$(datadir)/@PACKAGE@/lib')
+EXTRA_DIST					= $(uclib_files)
 
-lib_srcdir = $(shell ls $(top_srcdir)/lib/*.*|grep -v Makefile|grep -v \.bak$$)
-
-install: install-lib-local
-
-install-lib-local:
-#	@echo install lib files to $(libdir)
-	@echo install lib files to ${libtodir}
-	@test -d $(libtodir) || mkdir -p $(libtodir)
-	$(INSTALL_DATA) $(lib_srcdir) $(libtodir)
-
-uninstall: uninstall-lib-local
-
-uninstall-lib-local:
-	@echo uninstall lib files from $(libtodir)
-	@echo rm -rf $(libtodir)
-	@test ! -d $(libtodir) \
-		|| rm -rf $(libtodir)
-
+uclibdatadir				= $(datadir)/@PACKAGE@/lib
+uclibdata_DATA				= $(uclib_files)

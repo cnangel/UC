@@ -9,5 +9,5 @@ conftodir			= $(shell echo $(sysconfdir)|sed -e 's|^/usr/etc|/etc|')
 EXTRA_DIST			= $(conf_files)
 
 # install data 
-confdatadir			= $(conftodir)/@PACKAGE_NAME@
+confdatadir			= $(conftodir)/@PACKAGE@
 confdata_DATA		= $(conf_files)
