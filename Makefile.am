@@ -13,10 +13,10 @@ m4data_DATA			= @PACKAGE@.m4 \
 
 # install @PACKAGE@.pc
 pcdatadir			= $(libdir)/pkgconfig
-pcdata_DATA			= @PACKAGE@.pc
+pcdata_DATA			= pkgconfig/@PACKAGE@.pc
 
 # install @PACKAGE@-config
-bin_SCRIPTS			= @PACKAGE@-config
+bin_SCRIPTS			= scripts/@PACKAGE@-config
 
 # define rpm build root
 RPMBUILDTOPDIR		= $(shell unset RPMBUILDTOPDIR; if [ -f ${HOME}/.rpmmacros ]; then export RPMBUILDTOPDIR=`grep _topdir ${HOME}/.rpmmacros|awk '{print $$2}'`; else export RPMBUILDTOPDIR=/usr/src/redhat; fi; echo $${RPMBUILDTOPDIR};)

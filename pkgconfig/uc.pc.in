@@ -4,7 +4,7 @@ libdir=@libdir@
 includedir=@includedir@
 
 Name: @PACKAGE@
-Description: user case
+Description: user case for pkg-config
 Version: @VERSION@
 Libs: -L${libdir} @uc_libs@
 Cflags: -I${includedir} @uc_cflags@

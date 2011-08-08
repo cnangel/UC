@@ -27,6 +27,7 @@ Doxyfile
 compile
 config.status
 myconfig.h
+uc-config
 uc.pc
 uc.spec
 doc/doxygen
@@ -43,7 +44,6 @@ config.h
 libtool
 src/uccmain
 src/uccppmain
-uc-config
 src/ucrun
 config.h.in
 m4/libtool.m4
