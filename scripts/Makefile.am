@@ -1,24 +1,11 @@
-# $Id: Makefile.am,v 1.0.0-0 2010/05/15 20:21:58 Cnangel Exp $
+# $Id: Makefile.am,v 1.0.0-0 2011/08/06 16:47:54 Cnangel Exp $
 
-AUTOMAKE_OPTIONS = foreign
+AUTOMAKE_OPTIONS		= foreign
 
-EXTRA_DIST = example.sh
+scripts_files			= example.sh \
+						  $(NULL)
 
-scriptstodir = $(shell echo '$(datadir)/@PACKAGE@/scripts')
-scripts_srcfiles = $(shell ls $(top_srcdir)/scripts/*|grep -v Makefile|grep -v \.bak$$)
+EXTRA_DIST				= $(scripts_files)
 
-install: install-scripts-local
-
-install-scripts-local:
-	@echo install scripts files to $(scriptstodir)
-	@test -d $(scriptstodir) || mkdir -p $(scriptstodir)
-	$(INSTALL_DATA) $(scripts_srcfiles) $(scriptstodir)
-
-uninstall: uninstall-scripts-local
-
-uninstall-scripts-local:
-	@echo uninstall scripts files from $(scriptstodir)
-	@test ! -d $(scriptstodir) \
-		|| rm -rf $(scriptstodir)
-	
-
+examplescriptdir		= $(datadir)/@PACKAGE_NAME@/scripts
+examplescript_SCRIPTS	= $(scripts_files)
