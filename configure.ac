@@ -74,10 +74,10 @@ AC_FUNC_MALLOC
 AC_TYPE_SIGNAL
 AC_CHECK_FUNCS([memset])
 
-PKG_CHECK_MODULES([GLIB2],[glib-2.0 >= 2.0.0 ],,AC_MSG_ERROR([
+PKG_CHECK_MODULES([GLIB2], [glib-2.0 >= 2.0.0 ], , AC_MSG_ERROR([
 			*** glib-2.0 >= 2.0.0  is required to build.]))
 
-AM_CONDITIONAL([STATIC_UC],[false])
+AM_CONDITIONAL([STATIC_UC], [false])
 
 AC_CHECK_EXTRA_OPTIONS
 MY_ARG_WITH([a_b], [no])
