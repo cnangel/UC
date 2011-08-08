@@ -46,5 +46,11 @@ uccppmain_LDFLAGS			= -static
 uccppmain_CPPFLAGS			= -I$(top_srcdir)/src 
 
 # you can self-define target like this
-# mybindir					= $(bindir)
+# mybindir					= $(bindir)/mime
 # mybin_PROGRAMS			= mybin
+# mylalibdir				= $(libdir)/mime
+# mylalib_LTLIBRARIES		= my.la
+# mysodir					= $(libdir)/mime
+# myso_PROGRAMS				= my.so
+# my_so_CXXFLAGS       		= -fPIC
+# my_so_LDFLAGS        		= -shared -fpic
