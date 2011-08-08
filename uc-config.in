@@ -40,6 +40,7 @@ for i ; do
     --sbindir) echo_sbindir="yes" ;;
     --libexecdir) echo_libexecdir="yes" ;;
     --datadir) echo_datadir="yes" ;;
+    --datarootdir) echo_datarootdir="yes" ;;
     --sysconfdir) echo_sysconfdir="yes" ;;
     --sharedstatedir) echo_sharedstatedir="yes" ;;
     --localstatedir) echo_localstatedir="yes" ;;
@@ -77,6 +78,9 @@ if test -z "$libexecdir" ; then
 fi
 if test -z "$datadir" ; then
   datadir="@datadir@"
+fi
+if test -z "$datarootdir" ; then
+  datarootdir="@datarootdir@"
 fi
 if test -z "$sysconfdir" ; then
   sysconfdir="@sysconfdir@"
@@ -156,6 +160,9 @@ fi
 if test x$echo_datadir = xyes ; then
   o=" $datadir"
 fi
+if test x$echo_datarootdir = xyes ; then
+  o=" $datarootdir"
+fi
 if test x$echo_sysconfdir = xyes ; then
   o=" $sysconfdir"
 fi
@@ -228,6 +235,7 @@ All available options:
   --sbindir          \$sbindir       $sbindir
   --libexecdir       \$libexecdir    $libexecdir
   --datadir          \$datadir       $datadir
+  --datarootdir      \$datarootdir   $datarootdir
   --sysconfdir       \$sysconfdir    $sysconfdir
   --sharedstatedir   \$sharedstatedir$sharedstatedir
   --localstatedir    \$localstatedir $localstatedir
