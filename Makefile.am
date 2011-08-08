@@ -58,7 +58,7 @@ doc:
 @MK@endif
 	$(mkdir_p) @DOXYGEN_OUTPUT_DIR@
 	doxygen
-	sed -i -e "s/charset=iso-8859-1/charset=utf-8/g" $(top_srcdir)/@DOXYGEN_OUTPUT_DIR@/html/*.html
+	sed -i -e "s/charset=iso-8859-1/charset=utf-8/g" $(top_builddir)/@DOXYGEN_OUTPUT_DIR@/html/*.html
 
 # for make rpm --with foo : make rpm OPTIONS='--with foo'
 rpm: doc dist @PACKAGE@.spec

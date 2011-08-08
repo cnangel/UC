@@ -36,13 +36,13 @@ bin_PROGRAMS				= uccmain uccppmain
 uccmain_SOURCES				= uccmain.c
 # uccmain_CXXFLAGS			= -Wno-deprecated
 uccmain_LDADD				= libuc.la
-uccmain_LDFLAGS				= -static
+#uccmain_LDFLAGS				= -static
 uccmain_CPPFLAGS			= -I$(top_srcdir)/src 
 
 uccppmain_SOURCES			= uccppmain.cpp
 # uccppmain_CXXFLAGS		= -Wno-deprecated
 uccppmain_LDADD				= libuc.la
-uccppmain_LDFLAGS			= -static
+#uccppmain_LDFLAGS			= -static
 uccppmain_CPPFLAGS			= -I$(top_srcdir)/src 
 
 # you can self-define target like this

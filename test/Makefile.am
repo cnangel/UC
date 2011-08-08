@@ -12,7 +12,7 @@ dotest_SOURCES		= dotest.cpp $(test_sources)
 dotest_CPPFLAGS		= -I$(top_srcdir)/src \
 					  `cppunit-config --cflags` \
 					  $(NULL)
-dotest_LDADD		= $(top_srcdir)/src/libuc.la
+dotest_LDADD		= $(top_builddir)/src/libuc.la
 dotest_LDFLAGS		= `cppunit-config --libs` \
 					  $(NULL)
 
