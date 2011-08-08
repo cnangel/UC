@@ -2,9 +2,9 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.59])
-AC_INIT([uc], [0.0.6], [cnangel@gmail.com])
+AC_INIT([uc],[0.0.6],[cnangel@gmail.com])
 AC_CONFIG_SRCDIR([test/dotest.cpp])
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([tar-ustar])
 AM_INIT_AUTOMAKE([uc], [0.0.6])
@@ -52,6 +52,7 @@ AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
+#LT_INIT
 
 # Checks for libraries.
 # FIXME: Replace `main' with a function in `-lcppunit':
