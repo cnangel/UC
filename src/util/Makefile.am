@@ -16,3 +16,11 @@ libnomalizeincludedir		= $(includedir)/@PACKAGE_NAME@/util
 libnomalizeinclude_HEADERS	= nomalize.h \
 							  $(NULL)
 
+sotestdir					= $(libdir)
+sotest_PROGRAMS				= libsotest.so
+libsotest_so_SOURCES		= testso.cpp \
+							  testso.h \
+							  $(NULL)
+libsotest_so_CPPFLAGS		= -I$(top_srcdir)/src
+libsotest_so_CXXFLAGS		= -fPIC
+libsotest_so_LDFLAGS		= -shared -fpic
