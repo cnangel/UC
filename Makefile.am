@@ -19,7 +19,7 @@ pcdata_DATA			= pkgconfig/@PACKAGE@.pc
 bin_SCRIPTS			= scripts/@PACKAGE@-config
 
 # define rpm build root
-RPMBUILDTOPDIR		= $(shell unset RPMBUILDTOPDIR; if [ -f ${HOME}/.rpmmacros ]; then export RPMBUILDTOPDIR=`grep _topdir ${HOME}/.rpmmacros|awk '{print $$2}'`; else export RPMBUILDTOPDIR=/usr/src/redhat; fi; echo $${RPMBUILDTOPDIR};)
+RPMBUILDTOPDIR		= $(shell unset RPMBUILDTOPDIR; if [ -f ${HOME}/.rpmmacros ]; then export RPMBUILDTOPDIR=`grep _topdir ${HOME}/.rpmmacros|head -1|awk '{print $$2}'`; else if [ -z $(RDIR) ]; then export RPMBUILDTOPDIR=target; else export RPMBUILDTOPDIR=$(RDIR); fi; fi; echo $${RPMBUILDTOPDIR};)
 # `rpm --showrc | $(PERL) -n -e 'print if(s/.*_topdir\s+(.*)/$$1/)'` ;
 
 EXTRA_DIST			= autogen.sh \
@@ -62,6 +62,7 @@ doc:
 
 # for make rpm --with foo : make rpm OPTIONS='--with foo'
 rpm: doc dist @PACKAGE@.spec
+	$(mkdir_p) ${RPMBUILDTOPDIR}/{BUILD,RPMS,SOURCES,SPECS,SRPMS,BUILDROOT}
 	$(RM) ${RPMBUILDTOPDIR}/SOURCES/$(distdir).tar.gz
 	$(RM) ${RPMBUILDTOPDIR}/SPECS/@PACKAGE@.spec
 	$(LN_S) `pwd`/$(distdir).tar.gz ${RPMBUILDTOPDIR}/SOURCES
