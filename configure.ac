@@ -11,6 +11,15 @@ AM_INIT_AUTOMAKE([tar-ustar])
 AM_INIT_AUTOMAKE([uc], [0.0.6])
 
 
+# build some environment variables
+# dnl AC_ARG_VAR(BUILD_MODE, [if 'release', using rc_xx format for release in package name,
+# dnl 			  else using nightly_XX])
+# dnl AS_IF([test "x$BUILD_MODE" == "xrelease"], 
+# dnl 	    [PACKAGE_RELEASE=rc_1],
+# dnl 	    [PACKAGE_RELEASE=nightly_`date +%Y%m%d%H%M`]
+# dnl              )
+# dnl AH_TEMPLATE([HAVE_UCDEPS], [defined uc dependent library was found])
+
 # Variable setting of package
 PACKAGE_RELEASE=1
 PACKAGE_URL=https://github.com/cnangel/UC
