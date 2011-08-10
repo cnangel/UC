@@ -14,8 +14,10 @@ AM_INIT_AUTOMAKE([uc], [0.0.6])
 # Variable setting of package
 PACKAGE_RELEASE=1
 PACKAGE_URL=https://github.com/cnangel/UC
+#BITS=`if [[ 64 -eq $(getconf LONG_BIT) ]]; then echo -n $(getconf LONG_BIT); fi`
 AC_SUBST(PACKAGE_RELEASE)
 AC_SUBST(PACKAGE_URL)
+#AC_SUBST(BITS)
 
 # Age information of package
 LT_VERSION_INFO=1:0:0
