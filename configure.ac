@@ -90,8 +90,8 @@ AC_FUNC_MALLOC
 AC_CHECK_FUNCS([memset])
 
 # Checks for modules (Only for test pkgconfig)
-PKG_CHECK_MODULES([GLIB2], [glib-2.0 >= 2.0.0 ], , AC_MSG_ERROR([
-                       *** glib-2.0 >= 2.0.0  is required to build.]))
+# dnl PKG_CHECK_MODULES([GLIB2], [glib-2.0 >= 2.0.0 ], , AC_MSG_ERROR([
+# dnl                        *** glib-2.0 >= 2.0.0  is required to build.]))
 
 # Submit a bool variable for Makefile*
 AM_CONDITIONAL([STATIC_UC], [false])
