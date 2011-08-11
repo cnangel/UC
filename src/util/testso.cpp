@@ -16,7 +16,7 @@ namespace so
 int SoTest::lcchar(char *str, size_t strLen)
 {
 	if (strLen == 0) return 1;
-	int i = 0;
+	size_t i = 0;
 	for (; i < strLen; i++) {
 		if (str[i] >= 'A' && str[i] <= 'Z') {
 			str[i] = str[i] + ' ';
@@ -28,7 +28,7 @@ int SoTest::lcchar(char *str, size_t strLen)
 int SoTest::ucchar(char *str, size_t strLen)
 {
 	if (strLen == 0) return 1;
-	int i = 0;
+	size_t i = 0;
 	for (; i < strLen; i++) {
 		if (str[i] >= 'a' && str[i] <= 'z') {
 			str[i] = str[i] - ' ';
