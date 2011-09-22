@@ -7,6 +7,8 @@ AUTOMAKE_OPTIONS			= foreign
 # include_HEADERS			= uc.h
 
 SUBDIRS						= util \
+							  common \
+							  interface \
 							  $(NULL)
 
 lib_LTLIBRARIES				= libuc.la
@@ -36,7 +38,7 @@ bin_PROGRAMS				= uccmain uccppmain
 uccmain_SOURCES				= uccmain.c
 # uccmain_CXXFLAGS			= -Wno-deprecated
 uccmain_LDADD				= libuc.la
-#uccmain_LDFLAGS				= -static
+uccmain_LDFLAGS				= -static
 uccmain_CPPFLAGS			= -I$(top_srcdir)/src 
 
 uccppmain_SOURCES			= uccppmain.cpp

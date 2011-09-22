@@ -53,3 +53,6 @@ m4/ltversion.m4
 m4/lt~obsolete.m4
 *.zip
 src/util/libsotest.so
+src/common/libuc_s.a
+src/interface/libucif.so
+

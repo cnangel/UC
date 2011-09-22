@@ -8,13 +8,13 @@
  * @date 2010/01/06 23:54:12
  */
 
-#ifndef __UTIL_TESTSO_H__
-#define __UTIL_TESTSO_H__
+#ifndef __UC_UTIL_TESTSO_H__
+#define __UC_UTIL_TESTSO_H__
 
 #include <string.h>
 #include <stdlib.h>
 
-namespace so
+namespace uc
 {
 
 class SoTest

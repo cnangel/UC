@@ -2,10 +2,21 @@
 
 AUTOMAKE_OPTIONS			= foreign
 
-uclib_files					= example.so \
+uclib_files					= libexample.so \
+							  libexample.a \
+							  libexample.la \
 							  $(NULL)
+
+dotlibsdir					= .libs
 
 EXTRA_DIST					= $(uclib_files)
 
 uclibdatadir				= $(datadir)/@PACKAGE@/lib
 uclibdata_DATA				= $(uclib_files)
+
+all-am: lib-local 
+
+lib-local:
+	@echo cp libexample.a file to .libs directory 
+	@test -d $(dotlibsdir) || mkdir -p $(dotlibsdir)
+	test -f $(dotlibsdir)/libexample.a || cp libexample.a $(dotlibsdir)

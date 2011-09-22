@@ -10,7 +10,7 @@
 
 #include <util/testso.h>
 
-namespace so
+namespace uc
 {
 
 int SoTest::lcchar(char *str, size_t strLen)

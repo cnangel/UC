@@ -125,6 +125,8 @@ AC_CONFIG_FILES([Doxyfile
                  scripts/Makefile
                  scripts/uc-config
                  src/Makefile
+				 src/common/Makefile
+				 src/interface/Makefile
                  src/util/Makefile
                  test/Makefile
                  tools/Makefile
