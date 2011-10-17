@@ -88,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 #cp -r include/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/include
 #cp -r lib/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/lib
 %makeinstall
+#%makeinstall PREFIX=$RPM_BUILD_ROOT%{_prefix} %{?mflags_install}
 #install -p -m 0644 include/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/include
 #install -p lib/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/lib
 #install -p -m 0644 data/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/data
@@ -104,7 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %if %{is_not_etc}
-ldconfig
+/sbin/ldconfig
 %endif
 
 %post devel
@@ -116,7 +117,7 @@ fi
 
 %postun
 %if %{is_not_etc}
-ldconfig
+/sbin/ldconfig
 %endif
 
 %files
