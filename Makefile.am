@@ -57,7 +57,7 @@ doc:
 @MK@	@echo "Not with FOO ... OK"
 @MK@endif
 	$(mkdir_p) @DOXYGEN_OUTPUT_DIR@
-	doxygen
+	doxygen -u && doxygen
 	sed -i -e "s/charset=iso-8859-1/charset=utf-8/g" $(top_builddir)/@DOXYGEN_OUTPUT_DIR@/html/*.html
 
 # for make rpm --with foo : make rpm OPTIONS='--with foo'
