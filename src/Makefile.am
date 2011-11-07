@@ -8,6 +8,7 @@ AUTOMAKE_OPTIONS			= foreign
 
 SUBDIRS						= util \
 							  common \
+							  . \
 							  interface \
 							  $(NULL)
 
