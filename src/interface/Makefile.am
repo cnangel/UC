@@ -20,7 +20,7 @@ ucifdir							= $(libdir)
 ucif_PROGRAMS					= libucif.so
 libucif_so_SOURCES				= ucif.cpp ucif.h \
 								  $(NULL)
-libucif_so_LDADD				= $(top_srcdir)/src/interface/.libs/libucinterface.a \
+libucif_so_LDADD				= libucinterface.la \
 								  $(NULL)
 libucif_so_LDFLAGS				= -L$(top_srcdir)/src/util -lsotest \
 								  -shared -fPIC \
