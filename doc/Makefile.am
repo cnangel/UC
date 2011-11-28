@@ -4,7 +4,7 @@ AUTOMAKE_OPTIONS			= foreign
 
 doxygen_dir					= $(shell if [ -d $(top_srcdir)/@DOXYGEN_OUTPUT_DIR@ ]; then echo $(top_srcdir)/@DOXYGEN_OUTPUT_DIR@; fi)
 
-EXTRA_DIST					= uc.txt \
+EXTRA_DIST					= rpm-spec-mode.el \
 							  $(doxygen_dir) \
 							  $(NULL)
 
