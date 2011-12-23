@@ -78,6 +78,8 @@ If you want to known develop programs and application about %{name}, you will ne
 # %ifarch noarch
 # --target=noarch
 make %{?_smp_mflags} %{?_with_foo_macro}
+
+%check
 make check
 
 %install
