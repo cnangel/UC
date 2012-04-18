@@ -24,6 +24,7 @@ libuc_la_CPPFLAGS			= -I$(top_srcdir)/src \
 							  $(NULL)
 # libuc_la_CXXFLAGS			= -Wno-deprecated -Wall -Wno-non-virtual-dtor
 # you can use -avoid-version miss -version-info
+# and add -module, not need "lib" for head
 libuc_la_LDFLAGS			= -no-undefined \
 							  -version-info @LT_VERSION_INFO@ \
 							  -release @PACKAGE_RELEASE@ \
