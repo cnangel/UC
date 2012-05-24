@@ -12,6 +12,7 @@ SUBDIRS						= util \
 							  interface \
 							  $(NULL)
 
+# you can use pkglib_LTLIBRARIES = libuc.la
 lib_LTLIBRARIES				= libuc.la
 
 libuc_la_SOURCES			= uccexam.c uccexam.h \
@@ -25,6 +26,7 @@ libuc_la_CPPFLAGS			= -I$(top_srcdir)/src \
 # libuc_la_CXXFLAGS			= -Wno-deprecated -Wall -Wno-non-virtual-dtor
 # you can use -avoid-version miss -version-info
 # and add -module, not need "lib" for head
+# and shared library use '-shared'
 libuc_la_LDFLAGS			= -no-undefined \
 							  -version-info @LT_VERSION_INFO@ \
 							  -release @PACKAGE_RELEASE@ \

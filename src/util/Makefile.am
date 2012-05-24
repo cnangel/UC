@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.0.0-0 2010/05/15 20:21:07 Cnangel Exp $
+# $Id: Makefile.am,v 1.0.0-0 2012/05/24 17:12:34 Cnangel Exp $
 
 AUTOMAKE_OPTIONS 			= foreign
 
@@ -16,11 +16,19 @@ libnomalizeincludedir		= $(includedir)/@PACKAGE_NAME@/util
 libnomalizeinclude_HEADERS	= nomalize.h \
 							  $(NULL)
 
-sotestdir					= $(libdir)
-sotest_PROGRAMS				= libsotest.so
-libsotest_so_SOURCES		= testso.cpp \
+# sotestdir					= $(libdir)
+# sotest_PROGRAMS				= libsotest.so
+# libsotest_so_SOURCES		= testso.cpp \
+# 							  testso.h \
+# 							  $(NULL)
+# libsotest_so_CPPFLAGS		= -I$(top_srcdir)/src
+# libsotest_so_CXXFLAGS		= -fPIC
+# libsotest_so_LDFLAGS		= -module -avoid-version -shared -fpic
+
+lib_LTLIBRARIES				= libsotest.la
+libsotest_la_SOURCES		= testso.cpp \
 							  testso.h \
 							  $(NULL)
-libsotest_so_CPPFLAGS		= -I$(top_srcdir)/src
-libsotest_so_CXXFLAGS		= -fPIC
-libsotest_so_LDFLAGS		= -shared -fpic
+libsotest_la_CPPFLAGS		= -I$(top_srcdir)/src
+libsotest_la_CXXFLAGS		= -fPIC
+libsotest_la_LDFLAGS		= -module -avoid-version -shared -fpic

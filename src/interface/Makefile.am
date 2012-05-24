@@ -1,11 +1,11 @@
-# $Id: Makefile.am,v 1.0.0-0 2011/09/23 00:28:28 Cnangel Exp $
+# $Id: Makefile.am,v 1.0.0-0 2012/05/24 17:18:07 Cnangel Exp $
 
 AUTOMAKE_OPTIONS 				= foreign
 
 AM_CXXFLAGS						= -I$(top_srcdir)/src \
 								  $(NULL)
 
-lib_LTLIBRARIES					= libucinterface.la
+lib_LTLIBRARIES					= libucinterface.la libucif.la
 libucinterface_la_SOURCES		= if.cpp if.h \
 								  $(NULL)
 libucinterface_la_LIBADD		= $(top_srcdir)/lib/libexample.la \
@@ -16,13 +16,20 @@ libucinterfaceincludedir		= $(includedir)/@PACKAGE_NAME@/interface
 libucinterfaceinclude_HEADERS	= if.h \
 								  $(NULL)
 
-ucifdir							= $(libdir)
-ucif_PROGRAMS					= libucif.so
-libucif_so_SOURCES				= ucif.cpp ucif.h \
+#ucifdir							= $(libdir)
+#ucif_PROGRAMS					= libucif.so
+#libucif_so_SOURCES				= ucif.cpp ucif.h \
+#								  $(NULL)
+#libucif_so_LDADD				= libucinterface.la \
+#								  $(NULL)
+#libucif_so_LDFLAGS				= -L$(top_srcdir)/src/util -lsotest \
+#								  -shared -fPIC \
+#								  $(NULL)
+libucif_la_SOURCES				= ucif.cpp ucif.h \
 								  $(NULL)
-libucif_so_LDADD				= libucinterface.la \
+libucif_la_LIBADD				= libucinterface.la \
 								  $(NULL)
-libucif_so_LDFLAGS				= -L$(top_srcdir)/src/util -lsotest \
+libucif_la_LDFLAGS				= -L$(top_srcdir)/src/util -lsotest \
 								  -shared -fPIC \
 								  $(NULL)
 libucifincludedir				= $(includedir)/@PACKAGE_NAME@/interface
