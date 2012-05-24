@@ -7,7 +7,9 @@ AC_CONFIG_SRCDIR([test/dotest.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([tar-ustar])
+# Since automake 1.9, th tar format can be chosen with the options tar-v7, tar-ustar, and tar-pax.
+# AM_INIT_AUTOMAKE([tar-ustar])
+AM_INIT_AUTOMAKE([1.9 tar-pax])
 AM_INIT_AUTOMAKE([uc], [0.0.6])
 
 
