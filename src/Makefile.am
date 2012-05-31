@@ -2,9 +2,14 @@
 
 AUTOMAKE_OPTIONS			= foreign
 
+# you can include some Makefile.am for yourself, like this: 
+# include $(top_srcdir)/config/MakeGlobal.am
+
 # AM_LDFLAGS				= -fPIC -L/usr/local/lib@BITS@ -pthread
 # AM_CXXFLAGS				= -Wno-deprecated
 # include_HEADERS			= uc.h
+
+# man_MANS					= uc.1
 
 LIST_HEADER_ALL				=  $(wildcard *.h) 
 
@@ -59,3 +64,24 @@ uccppmain_CPPFLAGS			= -I$(top_srcdir)/src
 # myso_PROGRAMS				= my.so
 # my_so_CXXFLAGS       		= -fPIC
 # my_so_LDFLAGS        		= -shared -fpic
+
+#install-exec-local: $(bin_PROGRAMS) $(noinst_PROGRAMS)
+#	@list='$(noinst_PROGRAMS)'; for p in $$list; do \
+#	  if test -f $$p; then \
+#	    echo " $(LIBTOOL)  --mode=install $(INSTALL_PROGRAM) $$p $(bindir)/`echo $$p|sed -e 's/$(EXEEXT)$$//' -e 's/-new//' -e 's/cxxfilt/$(DEMANGLER_NAME)/'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`"; \
+#	    $(LIBTOOL)  --mode=install $(INSTALL_PROGRAM) $$p $(bindir)/`echo $$p|sed -e 's/$(EXEEXT)$$//' -e 's/-new//' -e 's/cxxfilt/$(DEMANGLER_NAME)/'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
+#	  else :; fi; \
+#	done
+#	$(mkinstalldirs) $(tooldir)/bin
+#	for i in $(TOOL_PROGS); do \
+#	  if [ -f $$i$(EXEEXT) ]; then \
+#	    j=`echo $$i | sed -e 's/-new//'`; \
+#	    k=`echo $$j | sed '$(transform)'`; \
+#	    if [ "$(bindir)/$$k$(EXEEXT)" != "$(tooldir)/bin/$$j$(EXEEXT)" ]; then \
+#	      rm -f $(tooldir)/bin/$$j$(EXEEXT); \
+#	      ln $(bindir)/$$k$(EXEEXT) $(tooldir)/bin/$$j$(EXEEXT) >/dev/null 2>/dev/null \
+#		|| $(LIBTOOL) --mode=install $(INSTALL_PROGRAM) $$i$(EXEEXT) $(tooldir)/bin/$$j$(EXEEXT); \
+#	    fi; \
+#	  else true; \
+#	  fi; \
+#	done
