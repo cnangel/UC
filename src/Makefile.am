@@ -6,6 +6,8 @@ AUTOMAKE_OPTIONS			= foreign
 # AM_CXXFLAGS				= -Wno-deprecated
 # include_HEADERS			= uc.h
 
+LIST_HEADER_ALL				=  $(wildcard *.h) 
+
 SUBDIRS						= util \
 							  common \
 							  . \
@@ -15,9 +17,9 @@ SUBDIRS						= util \
 # you can use pkglib_LTLIBRARIES = libuc.la
 lib_LTLIBRARIES				= libuc.la
 
-libuc_la_SOURCES			= uccexam.c uccexam.h \
-							  uccppexam.cpp uccppexam.h \
-							  uc.h common.h \
+libuc_la_SOURCES			= uccexam.c \
+							  uccppexam.cpp \
+							  $(LIST_HEADER_ALL) \
 							  $(NULL)
 libuc_la_LIBADD				= util/libnomalize.la
 libuc_la_CPPFLAGS			= -I$(top_srcdir)/src \
@@ -32,11 +34,7 @@ libuc_la_LDFLAGS			= -no-undefined \
 							  -release @PACKAGE_RELEASE@ \
 							  $(NULL)
 libucincludedir				= $(includedir)/@PACKAGE_NAME@
-libucinclude_HEADERS		= uc.h \
-							  common.h \
-							  uccexam.h \
-							  uccppexam.h \
-							  $(NULL)
+libucinclude_HEADERS		= $(LIST_HEADER_ALL)
 
 bin_PROGRAMS				= uccmain uccppmain
 

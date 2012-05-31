@@ -23,7 +23,7 @@ AM_INIT_AUTOMAKE([uc], [0.0.6])
 # dnl AH_TEMPLATE([HAVE_UCDEPS], [defined uc dependent library was found])
 
 # Variable setting of package
-PACKAGE_RELEASE=1
+PACKAGE_RELEASE=2
 PACKAGE_URL=https://github.com/cnangel/UC
 #BITS=`if [[ 64 -eq $(getconf LONG_BIT) ]]; then echo -n $(getconf LONG_BIT); fi`
 AC_SUBST(PACKAGE_RELEASE)
