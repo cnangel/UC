@@ -92,6 +92,7 @@ AC_FUNC_MALLOC
 AC_CHECK_FUNCS([memset])
 
 # Checks for modules (Only for test pkgconfig)
+# you can use GLIB2_CFLAGS and GLIB2_LIBS for Makefile.am
 # dnl PKG_CHECK_MODULES([GLIB2], [glib-2.0 >= 2.0.0 ], , AC_MSG_ERROR([
 # dnl                        *** glib-2.0 >= 2.0.0  is required to build.]))
 
