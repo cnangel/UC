@@ -31,6 +31,7 @@ AC_SUBST(PACKAGE_URL)
 #AC_SUBST(BITS)
 
 # Age information of package
+ifdef([m4_pattern_allow], [m4_pattern_allow([LT_VERSION_INFO])])
 LT_VERSION_INFO=1:0:0
 #               | | |
 #               | | +---------------+
