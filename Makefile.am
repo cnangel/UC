@@ -37,6 +37,7 @@ EXTRA_DIST			= autogen.sh \
 
 SUBDIRS				= include \
 					  lib \
+					  lib64 \
 					  data \
 					  src \
 					  conf \

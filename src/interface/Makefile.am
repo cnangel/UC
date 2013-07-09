@@ -8,7 +8,7 @@ AM_CXXFLAGS						= -I$(top_srcdir)/src \
 lib_LTLIBRARIES					= libucinterface.la libucif.la
 libucinterface_la_SOURCES		= if.cpp if.h \
 								  $(NULL)
-libucinterface_la_LIBADD		= $(top_srcdir)/lib/libexample.la \
+libucinterface_la_LIBADD		= $(top_srcdir)/lib@BITS@/libexample.la \
 								  $(top_srcdir)/src/util/libnomalize.la \
 								  $(top_srcdir)/src/common/libuc_s.la \
 								  $(NULL)
