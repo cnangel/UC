@@ -140,6 +140,7 @@ fi
 #%config(noreplace) %attr(666,root,root) %{PACKAGE_HOME}/conf/*
 %{PACKAGE_HOME}/include/*
 %{PACKAGE_HOME}/lib/*
+%{PACKAGE_HOME}/lib64/*
 %attr(755,root,root) %{PACKAGE_HOME}/scripts/*
 %attr(755,root,root) %{PACKAGE_HOME}/tools/*
 
