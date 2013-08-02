@@ -19,16 +19,16 @@ my $man = 0;
 my $help = 0;
 pod2usage() if (scalar @ARGV == 0); 
 GetOptions (
-		"c|conf=s"			=> \$ARGV{conf},
-		"debug"             => \$ARGV{debug},
-		"verbose"           => \$ARGV{verbose},
+		"c|conf=s"			=> \$ARGV{'conf'},
+		"debug"             => \$ARGV{'debug'},
+		"verbose"           => \$ARGV{'verbose'},
 		'help|?'            => \$help,
 		man                 => \$man
 		) or pod2usage(2);
 pod2usage(1) if $help;
 pod2usage(-exitstatus => 0, -verbose => 2) if $man;
-$ARGV{conf} = "$Bin/../conf/config.cfg" unless ($ARGV{conf} && -f $ARGV{conf});
-pod2usage() unless (-f $ARGV{conf});
+$ARGV{conf} = "$Bin/../conf/config.cfg" unless ($ARGV{'conf'} && -f $ARGV{'conf'});
+pod2usage() unless (-f $ARGV{'conf'});
 
 # use vars qw/@files/;
 use Data::Dumper;
