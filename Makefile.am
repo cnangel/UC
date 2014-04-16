@@ -6,14 +6,16 @@ AUTOMAKE_OPTIONS	= foreign
 CURRENTPATH			= $(shell /bin/pwd)
 
 ACLOCAL_AMFLAGS		= -I m4
+
 # install m4 files
 m4datadir			= aclocal
 m4data_DATA			= @PACKAGE@.m4 \
 					  $(NULL)
 
-# install @PACKAGE@.pc
+# install pc files
 pcdatadir			= $(libdir)/pkgconfig
-pcdata_DATA			= pkgconfig/@PACKAGE@.pc
+pcdata_DATA			= pkgconfig/@PACKAGE@.pc \
+					  $(NULL)
 
 # install @PACKAGE@-config
 bin_SCRIPTS			= scripts/@PACKAGE@-config
