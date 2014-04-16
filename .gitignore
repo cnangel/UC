@@ -26,10 +26,6 @@ stamp-h1
 Doxyfile
 compile
 config.status
-myconfig.h
-uc-config
-uc.pc
-uc.spec
 doc/doxygen
 autom4te.cache
 aclocal.m4
@@ -42,9 +38,6 @@ ltmain.sh
 missing
 config.h
 libtool
-src/uccmain
-src/uccppmain
-src/ucrun
 config.h.in
 m4/libtool.m4
 m4/ltoptions.m4
@@ -52,7 +45,19 @@ m4/ltsugar.m4
 m4/ltversion.m4
 m4/lt~obsolete.m4
 *.zip
+*.trs
+*_unittest
+build-aux
+myconfig.h
+uc-config
+uc.pc
+uc.spec
+src/uccmain
+src/uccppmain
+src/ucrun
 src/util/libsotest.so
 src/common/libuc_s.a
 src/interface/libucif.so
+conf/config.cfg
+conf/log4cpp.conf
 

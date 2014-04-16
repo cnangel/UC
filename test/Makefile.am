@@ -4,6 +4,9 @@ AUTOMAKE_OPTIONS 	= foreign
 
 EXTRA_DIST			= template.cpp template.h 
 
+SUBDIRS				= template \
+					  $(NULL)
+
 test_sources		= uctf.cpp uctf.h \
 					  $(NULL)
 

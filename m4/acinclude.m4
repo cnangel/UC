@@ -71,6 +71,12 @@ AS_IF([test "x$enable_test" = "xyes"],
 AM_CONDITIONAL(ENABLE_TEST_OPTIONS, test x$enable_test != xno)
 
 
+dnl -------------------------------------------------------------------------
+dnl Checks for gtest libraries.
+dnl -------------------------------------------------------------------------
+dnl PKG_CHECK_MODULES([GTEST],[gtest >= 1.5.0],,AC_MSG_ERROR([
+dnl 			*** gtest >= 1.5.0 is required to build.]))
+
 
 ])
 
