@@ -14,11 +14,11 @@ cover_db
 *.log
 *Makefile.in
 *.libs
-*.la
 *.deps
 *Makefile.in
 *.o
 *.lo
+*.la
 *dotest
 config.log
 autom4te.cache

@@ -77,6 +77,7 @@ AC_CHECK_LIB([dl], [main])
 # FIXME: Replace `main' with a function in `-lpthread':
 AC_CHECK_LIB([pthread], [main])
 # Check for gtest
+ifdef([m4_pattern_allow], [m4_pattern_allow([GTEST_LIB_CHECK])])
 GTEST_LIB_CHECK([1.5], AC_MSG_RESULT([checking for Google Test... yes]), AC_MSG_ERROR([checking for Google Test... not found]))
 
 
