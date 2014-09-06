@@ -71,6 +71,14 @@ AS_IF([test "x$enable_test" = "xyes"],
 AM_CONDITIONAL(ENABLE_TEST_OPTIONS, test x$enable_test != xno)
 
 
+dnl -------------------------------------------------------------------------
+dnl Checks for gtest libraries.
+dnl -------------------------------------------------------------------------
+dnl PKG_CHECK_MODULES([GTEST],[gtest >= 1.5.0],,AC_MSG_ERROR([
+dnl 			*** gtest >= 1.5.0 is required to build.]))
+dnl ifdef([m4_pattern_allow], [m4_pattern_allow([GTEST_LIB_CHECK])])
+dnl GTEST_LIB_CHECK([1.5], AC_MSG_RESULT([checking for Google Test... yes]), AC_MSG_ERROR([checking for Google Test... not found]))
+
 
 ])
 

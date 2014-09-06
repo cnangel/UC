@@ -3,8 +3,11 @@
 AUTOMAKE_OPTIONS			= foreign
 
 conf_files					= config.cfg \
+							  log4cpp.conf \
 							  $(NULL)
 tpl_conf_files				= config.cfg.tpl \
+							  log4cpp.conf.tpl \
+							  example.conf.tpl \
 							  $(NULL)
 dist_conf_files				= example.conf \
 							  $(NULL)
@@ -22,5 +25,8 @@ dist_pkgsysconf_DATA		= $(dist_conf_files)
 pkglogdir					= $(localstatedir)/log/@PACKAGE@
 pkglog_DATA					= $(NULL)
 
-config.cfg : $(srcdir)/config.cfg.tpl
-	sed 's#your_words#replace_words#' $(srcdir)/config.cfg.tpl > config.cfg
+% : $(srcdir)/%.tpl
+	sed 's#your_words#replace_words#' $< > $@
+
+CLEANFILES					= *.cfg *.conf
+

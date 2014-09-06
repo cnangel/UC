@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.59])
-AC_INIT([uc],[0.0.6],[cnangel@gmail.com])
+AC_INIT([uc],[0.0.7],[cnangel@gmail.com])
 AC_CONFIG_SRCDIR([test/dotest.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -22,7 +22,7 @@ AM_INIT_AUTOMAKE([1.9 tar-pax])
 # dnl AH_TEMPLATE([HAVE_UCDEPS], [defined uc dependent library was found])
 
 # Variable setting of package
-PACKAGE_RELEASE=3
+PACKAGE_RELEASE=1
 PACKAGE_URL=https://github.com/cnangel/UC
 BITS=`if [[ 64 -eq $(getconf LONG_BIT) ]]; then echo -n $(getconf LONG_BIT); fi`
 AC_SUBST(PACKAGE_RELEASE)
@@ -76,6 +76,7 @@ AC_CHECK_LIB([cppunit], [main])
 AC_CHECK_LIB([dl], [main])
 # FIXME: Replace `main' with a function in `-lpthread':
 AC_CHECK_LIB([pthread], [main])
+
 
 # Checks for header files.
 AC_CHECK_HEADERS([stdint.h stdlib.h string.h])
@@ -133,6 +134,7 @@ AC_CONFIG_FILES([Doxyfile
 				 src/interface/Makefile
                  src/util/Makefile
                  test/Makefile
+                 test/template/Makefile
                  tools/Makefile
 				 uc.spec])
 AC_OUTPUT

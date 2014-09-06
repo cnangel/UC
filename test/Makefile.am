@@ -4,8 +4,12 @@ AUTOMAKE_OPTIONS 	= foreign
 
 EXTRA_DIST			= template.cpp template.h 
 
+SUBDIRS				= template \
+					  $(NULL)
+
 test_sources		= uctf.cpp uctf.h \
 					  $(NULL)
+# AM_DEFAULT_SOURCE_EXT = .cpp
 
 check_PROGRAMS		= dotest
 dotest_SOURCES		= dotest.cpp $(test_sources)
