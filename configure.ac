@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.59])
-AC_INIT([uc],[0.0.7],[cnangel@gmail.com])
+AC_INIT([uc],[0.0.8],[cnangel@gmail.com])
 AC_CONFIG_SRCDIR([test/dotest.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -135,6 +135,7 @@ AC_CONFIG_FILES([Doxyfile
                  src/Makefile
 				 src/common/Makefile
 				 src/interface/Makefile
+				 src/protobuf/Makefile
                  src/util/Makefile
                  test/Makefile
                  test/template/Makefile

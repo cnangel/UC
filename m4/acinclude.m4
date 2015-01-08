@@ -77,6 +77,11 @@ dnl -------------------------------------------------------------------------
 dnl PKG_CHECK_MODULES([GTEST],[gtest >= 1.5.0],,AC_MSG_ERROR([
 dnl 			*** gtest >= 1.5.0 is required to build.]))
 
+dnl -------------------------------------------------------------------------
+dnl Checks for protobuf libraries.
+dnl -------------------------------------------------------------------------
+PKG_CHECK_MODULES([PROTOBUF],[protobuf >= 2.3.0 ],,AC_MSG_ERROR([
+			*** protobuf >= 2.3.0 is required to build.]))
 
 ])
 

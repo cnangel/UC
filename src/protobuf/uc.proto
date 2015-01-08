@@ -1,0 +1,15 @@
+package ucpb;
+
+option java_package="net.huhoo.ucpb";
+option java_outer_classname = "UCPB";
+
+message UCID {
+    required uint64 id=1;
+    optional int32  version=2;
+}
+
+message UCMSG {
+    repeated UCID uc_value=1;
+    required uint64 updatetime =2;
+}
+
