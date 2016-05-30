@@ -25,6 +25,7 @@ Vendor: Cnangel <cnangel@gmail.com>
 Packager: Cnangel <cnangel@gmail.com>
 #Requires: 
 BuildRequires: cppunit-devel 
+BuildRequires: gtest-devel 
 #%if %{with libiconv} 
 #BuildRequires: libiconv-devel 
 #%endif
@@ -92,6 +93,10 @@ rm -rf $RPM_BUILD_ROOT
 #cp -r lib/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/lib
 %makeinstall
 #%makeinstall PREFIX=$RPM_BUILD_ROOT%{_prefix} %{?mflags_install}
+#/usr/bin/install -m 0755 -d $RPM_BUILD_ROOT%{_bindir}
+#/usr/bin/install -m 0755 -d $RPM_BUILD_ROOT%{_sysconfdir}
+#/usr/bin/install -pm 0755 build64_release/lbate/lbate_server $RPM_BUILD_ROOT%{_bindir}
+#/usr/bin/install -pm 0644 conf/cluster conf/lbate.cfg conf/alog.cfg $RPM_BUILD_ROOT%{_sysconfdir}
 #install -p -m 0644 include/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/include
 #install -p lib/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/lib
 #install -p -m 0644 data/* $RPM_BUILD_ROOT%{PACKAGE_HOME}/data
@@ -169,6 +174,8 @@ fi
 
 
 %changelog
+* Thu Jan 08 2015 Cnangel <cnangel@gmail.com> 0.0.8-1
+- add protobuf template
 * Mon Aug 08 2011 Cnangel <cnangel@gmail.com> 0.0.6-1
 - Fix some bug for m4 files;
 - Let Makefile.am write so easy;

@@ -15,6 +15,7 @@ LIST_HEADER_ALL				=  $(wildcard *.h)
 
 SUBDIRS						= util \
 							  common \
+							  protobuf \
 							  . \
 							  interface \
 							  $(NULL)

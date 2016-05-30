@@ -9,7 +9,7 @@ INSTALLATION
 Don't modify ChangeLog and README if you are freshener.
 
     ./autogen.sh
-    ./configure
+    ./configure --enable-gtest=/usr
     make
     make test
     make install
