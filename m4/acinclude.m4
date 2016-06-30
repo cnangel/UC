@@ -88,6 +88,12 @@ dnl -------------------------------------------------------------------------
 PKG_CHECK_MODULES([PROTOBUF],[protobuf >= 2.3.0 ],,AC_MSG_ERROR([
 			*** protobuf >= 2.3.0 is required to build.]))
 
+dnl -------------------------------------------------------------------------
+dnl Checks for cppunit libraries.
+dnl -------------------------------------------------------------------------
+PKG_CHECK_MODULES([CPPUNIT],[cppunit >= 1.2.0 ],,AC_MSG_ERROR([
+			*** cppunit >= 1.2.0 is required to build.]))
+
 
 ])
 

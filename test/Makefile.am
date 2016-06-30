@@ -14,10 +14,10 @@ test_sources		= uctf.cpp uctf.h \
 check_PROGRAMS		= dotest
 dotest_SOURCES		= dotest.cpp $(test_sources)
 dotest_CPPFLAGS		= -I$(top_srcdir)/src \
-					  `cppunit-config --cflags` \
+					  $(CPPUNIT_CFLAGS) \
 					  $(NULL)
 dotest_LDADD		= $(top_builddir)/src/libuc.la
-dotest_LDFLAGS		= `cppunit-config --libs` \
+dotest_LDFLAGS		= $(CPPUNIT_LIBS) \
 					  $(NULL)
 
 
