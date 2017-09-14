@@ -164,6 +164,7 @@ fi
 %defattr(-,root,root,-)
 %{_docdir}
 
+#%_localstatedir/*/*.log
 #%_iconsdir/*/*/*/*.png
 #%_localedir/*/*/*.mo
 
