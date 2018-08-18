@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.59])
-AC_INIT([uc],[0.0.8],[cnangel@gmail.com])
+AC_INIT([uc],[0.0.9],[cnangel@gmail.com])
 AC_CONFIG_SRCDIR([test/dotest.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -79,10 +79,6 @@ AC_CHECK_LIB([cppunit], [main])
 AC_CHECK_LIB([dl], [main])
 # FIXME: Replace `main' with a function in `-lpthread':
 AC_CHECK_LIB([pthread], [main])
-# Check for gtest
-ifdef([m4_pattern_allow], [m4_pattern_allow([GTEST_LIB_CHECK])])
-GTEST_LIB_CHECK([1.5], AC_MSG_RESULT([checking for Google Test... yes]), AC_MSG_ERROR([checking for Google Test... not found]))
-
 
 
 # Checks for header files.

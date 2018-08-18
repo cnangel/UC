@@ -74,8 +74,8 @@ AM_CONDITIONAL(ENABLE_TEST_OPTIONS, test x$enable_test != xno)
 dnl -------------------------------------------------------------------------
 dnl Checks for gtest libraries.
 dnl -------------------------------------------------------------------------
-dnl PKG_CHECK_MODULES([GTEST],[gtest >= 1.5.0],,AC_MSG_ERROR([
-dnl 			*** gtest >= 1.5.0 is required to build.]))
+PKG_CHECK_MODULES([GTEST],[gtest >= 1.5.0],,AC_MSG_ERROR([
+			*** gtest >= 1.5.0 is required to build.]))
 
 
 dnl ifdef([m4_pattern_allow], [m4_pattern_allow([GTEST_LIB_CHECK])])
