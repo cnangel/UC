@@ -137,7 +137,7 @@ fi
 %files
 %defattr(-,root,root,-)
 #%doc AUTHORS COPYING ChangeLog INSTALL NEWS README
-%{_libdir}/*.so*
+%{_libdir}/*.so.*
 %attr(755,root,root) %{_bindir}
 %config(noreplace) %attr(666,root,root) %{_sysconfdir}/@PACKAGE_NAME@/*
 #%{_infodir}
@@ -153,6 +153,7 @@ fi
 %defattr(-,root,root,-)
 %{_includedir}
 %{_libdir}/*.a
+%{_libdir}/*.so
 %exclude %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 
